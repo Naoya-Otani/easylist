@@ -22,12 +22,8 @@ const ReviewList: FC<{
         return (
           <div
             key={item.id}
-            className={`p-4 mb-4 border rounded-md ${
+            className={`p-4 mb-4 border rounded-md border-gray-200 ${
               index === 0 ? "mt-4" : ""
-            } ${
-              session?.userId === item.userId
-                ? "bg-yellow-50 border-yellow-300"
-                : " border-gray-200"
             }`}
           >
             <div className="flex justify-end relative">
