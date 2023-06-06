@@ -52,7 +52,7 @@ const Contact = () => {
           />
           <label
             htmlFor="large-input"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900"
           >
             お問い合せ内容
           </label>

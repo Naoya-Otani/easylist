@@ -12,7 +12,7 @@ const Cards = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-10 h-10 mb-2 text-yellow-500 dark:text-gray-400"
+          className="w-10 h-10 mb-2 text-yellow-500"
         >
           <path
             strokeLinecap="round"
@@ -20,10 +20,10 @@ const Cards = () => {
             d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
           />
         </svg>
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           学びの幅を広げよう
         </h5>
-        <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-500">
           当サイトでは、幅広い授業から様々な情報を取り揃えています。
           自分に合った授業を見つけ、単位取得を目指しましょう。
         </p>
@@ -36,7 +36,7 @@ const Cards = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-10 h-10 mb-2 text-yellow-500 dark:text-gray-400"
+          className="w-10 h-10 mb-2 text-yellow-500"
         >
           <path
             strokeLinecap="round"
@@ -45,10 +45,10 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 ">
           効率的に授業を選択しよう
         </h5>
-        <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-500">
           単位の取りやすさや実際に受けた人の感想を参考にして、効率的に履修を組みましょう。
         </p>
         <NavLink href="/" text="履修の組み方へ" />
@@ -60,7 +60,7 @@ const Cards = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-10 h-10 mb-2 text-yellow-500 dark:text-gray-400"
+          className="w-10 h-10 mb-2 text-yellow-500"
         >
           <path
             strokeLinecap="round"
@@ -69,10 +69,10 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           最新の情報を入手しよう
         </h5>
-        <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-500">
           当サイトでは、授業の口コミ情報を随時更新しています。
           最新情報をいち早く入手し、学生生活をより充実させましょう。
         </p>
@@ -85,7 +85,7 @@ const Cards = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-10 h-10 mb-2 text-yellow-500 dark:text-gray-400"
+          className="w-10 h-10 mb-2 text-yellow-500"
         >
           <path
             strokeLinecap="round"
@@ -94,10 +94,10 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           質問はオープンチャットで
         </h5>
-        <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+        <p className="mb-3 font-normal text-gray-500">
           Webで分からないことがあれば、LINEのオープンチャットで質問できます。
           また、その他のSNSでも情報発信しています。
         </p>
