@@ -13,7 +13,7 @@ module.exports = {
       },
       backgroundImage: {
         bgSearchbox: "url('/bgSearchbox.png')",
-        bgSearchbar: "url('/bg_searchbar.jpeg')",
+        bgSearchbar: "url('/bg_searchbar.webp')",
       },
       colors: {
         bgGray: "#F2F2F2",
