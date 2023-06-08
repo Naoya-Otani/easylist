@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["gtag.js"],
     "target": "es5",
     "typeRoots": ["src/@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -19,6 +20,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jsonTriming/triming.js", "firebase/client.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "jsonTriming/triming.js",
+    "firebase/client.js"
+  ],
   "exclude": ["node_modules"]
 }
