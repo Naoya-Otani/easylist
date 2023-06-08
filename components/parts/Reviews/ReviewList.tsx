@@ -1,8 +1,7 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
 import { Review } from "@prisma/client";
 import StarReview from "./StarReview";
 import ReviewMenu from "./ReviewMenu";
-import { useSession } from "next-auth/react";
 
 function formatDate(date: Date) {
   const year = date.getFullYear();
@@ -14,8 +13,6 @@ function formatDate(date: Date) {
 const ReviewList: FC<{
   reviews: Review[];
 }> = ({ reviews }) => {
-  const { data: session } = useSession();
-
   return (
     <div>
       {reviews.map((item, index) => {
