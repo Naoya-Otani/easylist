@@ -16,16 +16,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "jsonTriming/triming.js",
-    "firebase/client.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jsonTriming/triming.js"],
   "exclude": ["node_modules"]
 }

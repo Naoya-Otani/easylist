@@ -1,3 +1,4 @@
+import React from "react";
 import LogoBar from "../parts/common/LogoBar";
 import NavBar from "../parts/Header/NavBar";
 import SearchBar from "../parts/Header/SearchBar";
