@@ -1,6 +1,5 @@
 import React from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import Header from "@/src/components/templates/Header";
 import Footer from "@/src/components/templates/Footer";
 import NavLink from "@/src/components/parts/common/NavLink";
