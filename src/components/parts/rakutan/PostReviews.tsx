@@ -10,6 +10,7 @@ import StarRate from "../PostReviews/StarRate";
 import Detail from "../PostReviews/Detail";
 import SubmitBtn from "../PostReviews/SubmitBtn";
 import DoneModal from "../common/DoneModal";
+import Notes from "../PostReviews/Notes";
 
 const PostReviews: FC<{
   courseId: number;
@@ -120,7 +121,10 @@ const PostReviews: FC<{
         )}
         <StarRate setReputation={setReputation} />
         <Detail detail={detail} setDetail={setDetail} />
-        <SubmitBtn />
+        <div className="flex justify-between items-start">
+          <Notes />
+          <SubmitBtn />
+        </div>
       </form>
       <DoneModal
         isOpen={isOpen}
