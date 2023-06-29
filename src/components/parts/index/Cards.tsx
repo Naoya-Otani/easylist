@@ -51,7 +51,7 @@ const Cards = () => {
         <p className="mb-3 font-normal text-gray-500">
           単位の取りやすさや実際に受けた人の感想を参考にして、効率的に履修を組みましょう。
         </p>
-        <NavLink href="/" text="履修の組み方へ" />
+        <NavLink href="/courses" text="履修の組み方へ" />
       </div>
       <div className="max-w-sm lg:max-w-lg min-h-[220px] mb-4 md:mb-0 p-6 bg-white border border-gray-200 rounded-lg shadow">
         <svg
