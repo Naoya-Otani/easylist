@@ -20,6 +20,7 @@
     "@types/node": "18.15.8",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
+    "isomorphic-dompurify": "^1.7.0",
     "next": "13.2.4",
     "next-auth": "^4.22.1",
     "next-superjson": "^0.0.4",

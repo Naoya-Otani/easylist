@@ -27,7 +27,7 @@ const Cards = () => {
           当サイトでは、幅広い授業から様々な情報を取り揃えています。
           自分に合った授業を見つけ、単位取得を目指しましょう。
         </p>
-        <NavLink href="/rakutan/" text="楽単リストへ" />
+        <NavLink href="/rakutan/" text="楽単リスト　概要へ" />
       </div>
       <div className="max-w-sm lg:max-w-lg max-h-[246px] min-h-[220px] mb-4 md:mb-0 p-6 bg-white border border-gray-200 rounded-lg shadow">
         <svg
@@ -70,13 +70,13 @@ const Cards = () => {
         </svg>
 
         <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
-          最新の情報を入手しよう
+          楽単を見つけよう
         </h5>
         <p className="mb-3 font-normal text-gray-500">
           当サイトでは、授業の口コミ情報を随時更新しています。
-          最新情報をいち早く入手し、学生生活をより充実させましょう。
+          とりあえず、人文社会から楽単を探してみましょう。
         </p>
-        <NavLink href="/rakutan/" text="楽単リストへ" />
+        <NavLink href="/rakutan/humanities" text="楽単リスト　人文社会へ" />
       </div>
       <div className="max-w-sm lg:max-w-lg min-h-[220px] p-6 md:mb-0 bg-white border border-gray-200 rounded-lg shadow">
         <svg
@@ -101,7 +101,10 @@ const Cards = () => {
           Webで分からないことがあれば、LINEのオープンチャットで質問できます。
           また、その他のSNSでも情報発信しています。
         </p>
-        <NavAnchor href="https://line.com" text="オープンチャットへ" />
+        <NavAnchor
+          href="https://line.me/ti/g2/blzJBWWmrCi3EUzYB2uSVA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+          text="オープンチャットへ"
+        />
       </div>
     </div>
   );
