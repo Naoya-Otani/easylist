@@ -21,6 +21,8 @@ module.exports = {
         pastelGreen1: "#C9F4AA",
         pastelGreen2: "#E5FDD1",
         pastelGreen3: "#B5F1CC",
+        gradYellow: "#FFF95B",
+        gradOrange: "#FF930F",
       },
     },
     fontWeight: {
