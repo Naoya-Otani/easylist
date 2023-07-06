@@ -6,7 +6,7 @@ const Button = () => {
     <>
       {!session && (
         <button
-          className="flex justify-center items-center border-1 border-yellow-500 rounded-md px-4 py-2 text-sm duration-300 "
+          className="flex justify-center items-center border-1 border-yellow-500 rounded-md px-4 py-2 text-sm duration-300 bg-white"
           onClick={() => signIn()}
         >
           <svg

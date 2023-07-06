@@ -14,6 +14,11 @@ const SearchBar = () => {
     const sanitizedQuery = sanitize(query);
     const encodedQuery = encodeURIComponent(sanitizedQuery);
     const url = `/api/rakutan/search?q=${encodedQuery}`;
+
+    if (isBlankString(searchQuery)) {
+      return;
+    }
+
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -40,6 +45,10 @@ const SearchBar = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.nativeEvent.isComposing || e.key !== "Enter") return;
     performSearch(searchQuery);
+  };
+
+  const isBlankString = (str: string) => {
+    return /^[\s　\n]*$/.test(str);
   };
 
   return (

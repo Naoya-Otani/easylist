@@ -6,11 +6,13 @@ import SearchBar from "../parts/Header/SearchBar";
 const Header = () => {
   return (
     <header>
-      <div className="flex justify-between items-center my-6 mx-8">
+      <div className="flex md:flex-col md:gap-y-4 lg:gap-0 lg:flex-row justify-between items-center my-6 mx-8">
         <LogoBar />
         <NavBar />
       </div>
-      <SearchBar />
+      <div className="hidden md:block">
+        <SearchBar />
+      </div>
     </header>
   );
 };

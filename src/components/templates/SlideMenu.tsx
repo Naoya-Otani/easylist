@@ -18,7 +18,7 @@ const SlideMenu: FC<{
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="fixed inset-0 bg-white w-screen h-screen flex flex-col justify-between z-10 overflow-hidden ">
+      <div className="fixed inset-0 bg-white w-screen h-screen flex flex-col justify-between z-30 overflow-hidden ">
         <div className="relative flex justify-center my-6">
           <LogoBar />
         </div>
@@ -324,7 +324,7 @@ const SlideMenu: FC<{
             <p className="text-sm font-bold mb-2 px-20 text-yellow-600">検索</p>
             <SearchBar />
           </div>
-          <div className="bg-white flex justify-center mx-20 border border-gray-50 rounded-md shadow-lg">
+          <div className="flex justify-center mx-20 w-fit rounded-md shadow-lg">
             <Button />
           </div>
         </div>

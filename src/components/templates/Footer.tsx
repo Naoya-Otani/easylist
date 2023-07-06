@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-white font-notoSans">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="md:ml-4 mb-6 md:mb-0 flex justify-center">
+          <div className="hidden md:flex md:ml-4 mb-6 md:mb-0  justify-center">
             <LogoBar />
           </div>
           <div className="mr-8 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

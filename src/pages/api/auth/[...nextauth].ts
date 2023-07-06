@@ -22,4 +22,9 @@ export default NextAuth({
     },
   },
   secret: "secret",
+  theme: {
+    colorScheme: "light",
+    logo: "/icon-easylist.svg",
+    brandColor: "#FEF9C3",
+  },
 });
