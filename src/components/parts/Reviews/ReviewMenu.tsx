@@ -11,6 +11,7 @@ const ReviewMenu: FC<{
   const { data: session } = useSession();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
   const isMatch = session?.userId === userId;
   const deleteHandler = async () => {
     if (isMatch) {
@@ -31,6 +32,28 @@ const ReviewMenu: FC<{
         }
       } catch (error) {
         console.error("レビューの削除中にエラーが発生しました:", error);
+      }
+    }
+  };
+
+  const reportHandler = async () => {
+    if (!isMatch) {
+      try {
+        const response = await fetch("/api/reviews/report", {
+          method: "POST",
+          body: JSON.stringify({ reviewId }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (response.ok) {
+          console.log("レビューが報告されました");
+          setIsReportOpen(true);
+        } else {
+          console.error("レビューの報告中にエラーが発生しました");
+        }
+      } catch (error) {
+        console.error("レビューの報告中にエラーが発生しました:", error);
       }
     }
   };
@@ -74,6 +97,7 @@ const ReviewMenu: FC<{
                       className={`${
                         active ? "bg-yellow-500 text-white" : "text-gray-800"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      onClick={reportHandler}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +157,12 @@ const ReviewMenu: FC<{
         setIsOpen={setIsOpen}
         title="レビューを削除しました！"
         body="レビューを削除しました。"
+      />
+      <DoneModal
+        isOpen={isReportOpen}
+        setIsOpen={setIsReportOpen}
+        title="レビューを報告しました！"
+        body="管理者がレビューをチェックします。"
       />
     </div>
   );

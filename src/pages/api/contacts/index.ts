@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createTransport } from "nodemailer";
+import { PrismaClient } from "@prisma/client";
 
 export default async function sendEmailHandler(
   req: NextApiRequest,
@@ -23,11 +24,22 @@ export default async function sendEmailHandler(
     return res.status(400).json({ success: false });
   }
 
-  await transporter.sendMail({
-    from: process.env.NEXT_PUBLIC_MAIL_USER,
-    to: data.email,
-    subject: "以下の内容でお問い合わせを受け付けました",
-    text: `
+  const prisma = new PrismaClient();
+  try {
+    await prisma.contact.create({
+      data: {
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
+        createdAt: new Date(),
+      },
+    });
+    await transporter.sendMail({
+      from: process.env.NEXT_PUBLIC_MAIL_USER,
+      to: data.email,
+      subject: "以下の内容でお問い合わせを受け付けました",
+      text: `
     名前
     ${data.name}
     
@@ -40,9 +52,10 @@ export default async function sendEmailHandler(
     お問い合わせ内容
     ${data.message}
     `,
-  });
-
-  res.status(200).json({
-    success: true,
-  });
+    });
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false });
+  }
 }

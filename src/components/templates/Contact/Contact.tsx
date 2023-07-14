@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DoneModal from "../../parts/common/DoneModal";
+import NavAnchor from "../../parts/common/NavAnchor";
 import { sanitize } from "isomorphic-dompurify";
 
 const Contact = () => {
@@ -77,7 +78,12 @@ const Contact = () => {
       <h1 className="text-center text-3xl font-bold mt-16">お問い合わせ</h1>
       <p className="text-center text-sm text-gray-500 mt-4 mb-16 mx-4">
         ご意見・ご要望・ご質問など、お気軽にお問い合わせください。
-        カジュアルな内容でも構いません。
+        カジュアルな内容なら
+        <NavAnchor
+          href="https://discord.com/channels/1126311403914018856/1126311570155257896"
+          text="Discord"
+        />
+        で受け付けています。
       </p>
       <div className="mb-6 mx-4">
         <form onSubmit={sendForm}>

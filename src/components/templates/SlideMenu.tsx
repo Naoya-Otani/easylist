@@ -320,8 +320,10 @@ const SlideMenu: FC<{
         </div>
 
         <div className="h-[36%] flex flex-col justify-around font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
-          <div className="flex flex-col">
-            <p className="text-sm font-bold mb-2 px-20 text-yellow-600">検索</p>
+          <div className="relative flex flex-col py-6">
+            <p className="absolute top-0 left-20 text-sm font-bold mb-2 text-yellow-600">
+              検索
+            </p>
             <SearchBar />
           </div>
           <div className="flex justify-center mx-20 w-fit rounded-md shadow-lg">

@@ -9,7 +9,6 @@ import NavAnchor from "@/src/components/parts/common/NavAnchor";
 import ReviewList from "@/src/components/parts/Reviews/ReviewList";
 import AvgStar from "@/src/components/parts/rakutan/AvgStar";
 import CircleGragh from "@/src/components/parts/Reviews/CircleGragh";
-import Notes from "../../parts/PostReviews/Notes";
 
 type Props = {
   data: Array<CourseSummary & { reviews: Review[] }>;
