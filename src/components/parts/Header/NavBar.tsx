@@ -80,9 +80,21 @@ const NavBar = () => {
                       className={`${
                         active ? "bg-yellow-500 text-white" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      href="/rakutan/online"
+                    >
+                      オンライン授業
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link
+                      className={`${
+                        active ? "bg-yellow-500 text-white" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       href="/rakutan/pe"
                     >
-                      体育
+                      体育（準備中）
                     </Link>
                   )}
                 </Menu.Item>
@@ -94,7 +106,7 @@ const NavBar = () => {
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       href="/rakutan/specialized"
                     >
-                      専門科目
+                      専門科目（準備中）
                     </Link>
                   )}
                 </Menu.Item>
@@ -106,7 +118,7 @@ const NavBar = () => {
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       href="/rakutan/others"
                     >
-                      その他
+                      その他（準備中）
                     </Link>
                   )}
                 </Menu.Item>

@@ -55,10 +55,13 @@ const SearchBar = () => {
     <div className="lg:bg-bgSearchbar lg:bg-cover lg:aspect-[5/1] lg:py-24 rounded-sm">
       <div className="flex items-center justify-center ">
         <div className="relative items-center">
+          <div className="absolute left-0 bottom-[100%] bg-yellow-500 rounded-t-md w-fit h-fit flex justify-center items-center px-4 py-2">
+            <p className="text-white text-sm font-bold">授業名か先生名で検索</p>
+          </div>
           <input
             type="text"
-            placeholder="授業名か先生名"
-            className="px-4 py-2 w-full lg:w-[400px] rounded border-yellow-500 focus:outline-none focus:border-yellow-500 border-1 focus:border-2 focus:ring-0 font-notoSans placeholder:font-notoSans"
+            placeholder="例）音楽"
+            className="px-4 py-2 w-full lg:w-[400px] rounded-b rounded-tr border-yellow-500 focus:outline-none focus:border-yellow-500 border-2  focus:ring-0 font-notoSans placeholder:font-notoSans"
             onChange={handleChange}
             onKeyDown={handleKeyDown}
           />
@@ -70,9 +73,9 @@ const SearchBar = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1.0}
+              strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 mr-2 text-gray-500"
+              className="w-6 h-6 mx-2 text-gray-500"
             >
               <path
                 strokeLinecap="round"

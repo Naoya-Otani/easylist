@@ -9,7 +9,6 @@ import Script from "next/script";
 import * as gtag from "@/lib/gtag";
 import { useRouter } from "next/router";
 
-// fonts setting
 const gothicA1 = Gothic_A1({
   weight: ["100", "200", "300", "400", "500"],
   subsets: ["latin"],
@@ -23,35 +22,38 @@ const notoSansJP = Noto_Sans_JP({
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [loading, setLoading] = useState(false);
+  const startLoading = () => {
+    setLoading(true);
+  };
+  const stopLoading = () => {
+    setLoading(false);
+  };
   useEffect(() => {
-    const start = () => {
-      setLoading(true);
-    };
-
-    const end = () => {
-      setLoading(false);
-    };
-
-    Router.events.on("routeChangeStart", start);
-    Router.events.on("routeChangeComplete", end);
-    Router.events.on("routeChangeError", end);
-
+    Router.events.on("routeChangeStart", startLoading);
+    Router.events.on("routeChangeComplete", stopLoading);
+    Router.events.on("routeChangeError", stopLoading);
     return () => {
-      Router.events.off("routeChangeStart", start);
-      Router.events.off("routeChangeComplete", end);
-      Router.events.off("routeChangeError", end);
+      Router.events.off("routeChangeStart", startLoading);
+      Router.events.off("routeChangeComplete", stopLoading);
+      Router.events.off("routeChangeError", stopLoading);
     };
   }, []);
+
   const router = useRouter();
+
+  // ページ遷移が完了したときにGoogle Analyticsのページビューを送信する関数
+  const handleRouterChange = (url: string) => {
+    gtag.pageview(url);
+  };
+
   useEffect(() => {
-    const handleRouterChange = (url: string) => {
-      gtag.pageview(url);
-    };
     router.events.on("routeChangeComplete", handleRouterChange);
+
     return () => {
       router.events.off("routeChangeComplete", handleRouterChange);
     };
   }, [router.events]);
+
   return (
     <>
       <SessionProvider>

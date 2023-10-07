@@ -1,20 +1,19 @@
 import React, { FC } from "react";
-import { Review } from "@prisma/client";
+import { SavedReview } from "@/src/@types/rakutan";
 
-const HasAttendance: FC<{ reviews: Review[] }> = ({ reviews }) => {
-  const attendanceCount = reviews.reduce((count, review) => {
-    return review.attendance ? count + 1 : count;
-  }, 0);
+const HasAttendance: FC<{ agg_attendance: boolean; count_reviews: number }> = ({
+  agg_attendance,
+  count_reviews,
+}) => {
+  let text;
 
-  const hasMoreAttendance =
-    reviews.length > 0 && attendanceCount > reviews.length / 2;
-
-  const text =
-    reviews.length > 0
-      ? hasMoreAttendance
-        ? "出席有り"
-        : "出席無し"
-      : "情報がありません";
+  if (agg_attendance === true) {
+    text = "出席あり";
+  } else if (count_reviews > 0 && agg_attendance === false) {
+    text = "出席なし";
+  } else {
+    text = "情報がありません";
+  }
 
   return (
     <div className="flex mb-2 text-gray-500">

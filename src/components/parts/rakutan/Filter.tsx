@@ -1,25 +1,20 @@
 import { Fragment, useState, FC } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-
-const filterOptions = [
-  { name: "フィルター無し" },
-  { name: "対面授業" },
-  { name: "オンデマンド授業" },
-  { name: "出席がない授業" },
-  { name: "試験がない授業" },
-];
+import { filterOptions } from "./SortFilterOptions";
 
 const Filter: FC<{
-  filterData: (option: { name: string }) => void;
-}> = ({ filterData }) => {
+  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
+}> = ({ filter, setFilter }) => {
   const [selected, setSelected] = useState(filterOptions[0]);
-  const filterHandler = (option: { name: string }) => {
-    filterData(option);
+  const filterHandler = (option: { name: string; value: string }) => {
+    setFilter(option.value);
+    setSelected(option);
   };
   return (
     <div className="w-full">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={filter} onChange={setFilter}>
         <div className="relative mt-1 z-10">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.name}</span>
@@ -46,7 +41,7 @@ const Filter: FC<{
                       active ? "bg-yellow-50 text-yellow-500" : "text-gray-800"
                     }`
                   }
-                  value={option}
+                  value={option.value}
                 >
                   {({ selected }) => (
                     <>

@@ -1,19 +1,18 @@
 import React, { FC } from "react";
-import { Review } from "@prisma/client";
 
-const HasExam: FC<{ reviews: Review[] }> = ({ reviews }) => {
-  const examCount = reviews.reduce((count, review) => {
-    return review.hasExam ? count + 1 : count;
-  }, 0);
+const HasExam: FC<{ agg_hasExam: boolean; count_reviews: number }> = ({
+  agg_hasExam,
+  count_reviews,
+}) => {
+  let text;
 
-  const hasMoreExam = reviews.length > 0 && examCount > reviews.length / 2;
-
-  const text =
-    reviews.length > 0
-      ? hasMoreExam
-        ? "テスト有り"
-        : "テスト無し"
-      : "情報がありません";
+  if (agg_hasExam === true) {
+    text = "テストあり";
+  } else if (count_reviews > 0 && agg_hasExam === false) {
+    text = "テストなし";
+  } else {
+    text = "情報がありません";
+  }
 
   return (
     <div className="flex mb-2 text-gray-500">

@@ -97,9 +97,23 @@ const SlideMenu: FC<{
                                 ? "bg-yellow-500 text-white"
                                 : "text-gray-900"
                             } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                            href="/rakutan/online"
+                          >
+                            オンライン授業
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            className={`${
+                              active
+                                ? "bg-yellow-500 text-white"
+                                : "text-gray-900"
+                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                             href="/rakutan/pe"
                           >
-                            体育
+                            体育（準備中）
                           </Link>
                         )}
                       </Menu.Item>
@@ -113,7 +127,7 @@ const SlideMenu: FC<{
                             } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                             href="/rakutan/specialized"
                           >
-                            専門科目
+                            専門科目（準備中）
                           </Link>
                         )}
                       </Menu.Item>
@@ -127,7 +141,7 @@ const SlideMenu: FC<{
                             } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                             href="/rakutan/others"
                           >
-                            その他
+                            その他（準備中）
                           </Link>
                         )}
                       </Menu.Item>
@@ -319,14 +333,11 @@ const SlideMenu: FC<{
           </ul>
         </div>
 
-        <div className="h-[36%] flex flex-col justify-around font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
-          <div className="relative flex flex-col py-6">
-            <p className="absolute top-0 left-20 text-sm font-bold mb-2 text-yellow-600">
-              検索
-            </p>
+        <div className="h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
+          <div className="mt-6">
             <SearchBar />
           </div>
-          <div className="flex justify-center mx-20 w-fit rounded-md shadow-lg">
+          <div className="w-fit rounded-md shadow-lg">
             <Button />
           </div>
         </div>

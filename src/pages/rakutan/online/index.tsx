@@ -3,23 +3,23 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import Footer from "@/src/components/templates/Footer";
 import Header from "@/src/components/templates/Header";
-import Humanities from "@/src/components/templates/rakutan/Humanities";
+import Online from "@/src/components/templates/rakutan/Online";
 
-const humanities: NextPage = () => {
+const online: NextPage = () => {
   return (
     <>
       <Head>
-        <title>人文・社会科学系列 楽単リスト</title>
+        <title>オンライン授業（オンデマンド） 楽単リスト</title>
         <meta
           name="description"
-          content="人文・社会系列の楽単リストです。"
+          content="オンライン（オンデマンド）の楽単リストです。"
         ></meta>
       </Head>
       <Header />
-      <Humanities />
+      <Online />
       <Footer />
     </>
   );
 };
 
-export default humanities;
+export default online;
