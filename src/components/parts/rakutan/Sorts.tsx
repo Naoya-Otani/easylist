@@ -1,24 +1,20 @@
-import { Fragment, FC } from "react";
+import { Fragment, FC, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-
-const sortOptions = [
-  { name: "通常" },
-  { name: "評価の高い順" },
-  { name: "レビューの多い順" },
-];
+import { sortOptions } from "./SortFilterOptions";
 
 const Sorts: FC<{
-  selected: { name: string };
-  setSelected: React.Dispatch<React.SetStateAction<{ name: string }>>;
-  sortData: (option: { name: string }) => void;
-}> = ({ selected, setSelected, sortData }) => {
-  const sortHandler = (option: { name: string }) => {
-    sortData(option);
+  sort: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
+}> = ({ sort, setSort }) => {
+  const [selected, setSelected] = useState(sortOptions[0]);
+  const sortHandler = (option: { name: string; value: string }) => {
+    setSort(option.value);
+    setSelected(option);
   };
   return (
     <div className="w-full">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={sort} onChange={setSort}>
         <div className="relative mt-1 z-20">
           <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.name}</span>
@@ -45,7 +41,7 @@ const Sorts: FC<{
                       active ? "bg-yellow-50 text-yellow-500" : "text-gray-800"
                     }`
                   }
-                  value={option}
+                  value={option.value}
                 >
                   {({ selected }) => (
                     <>
