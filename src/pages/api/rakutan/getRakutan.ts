@@ -274,7 +274,6 @@ export default async function getRakutan(
             OFFSET
                 ${skip};
         `;
-        console.log(data.length);
         res.status(200).json(data);
         return data;
       default:

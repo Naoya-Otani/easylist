@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
+import { prisma } from "@/lib/prisma";
 
 export default async function searchHandler(
   req: NextApiRequest,
@@ -7,7 +7,6 @@ export default async function searchHandler(
 ) {
   if (req.method === "GET" || req.method === "POST") {
     const query = req.method === "GET" ? req.query.q : req.body.query;
-    const prisma = new PrismaClient();
 
     try {
       const result = await prisma.courseSummary.findMany({

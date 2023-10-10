@@ -1,3 +1,5 @@
+import { Review } from "@prisma/client";
+
 export type SavedReview = {
   id: number;
   courseId: number;
@@ -20,4 +22,10 @@ export type Rakutan = {
   agg_attendance: boolean;
   agg_hasReport: boolean;
   agg_hasExam: boolean;
+  entryNumber?: number | null;
+};
+
+export type RakutanWithReviews = {
+  course: Rakutan;
+  reviews: Review[];
 };

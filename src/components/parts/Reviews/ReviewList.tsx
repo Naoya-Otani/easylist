@@ -16,6 +16,7 @@ const ReviewList: FC<{
   return (
     <div>
       {reviews.map((item, index) => {
+        const date = new Date(item.createdAt);
         return (
           <div
             key={item.id}
@@ -31,7 +32,7 @@ const ReviewList: FC<{
                 <StarReview rating={item.reputation} />
               </div>
               <p className="text-gray-500 leading-5 pb-[2px]">
-                {formatDate(item.createdAt)}
+                {formatDate(date)}
               </p>
             </div>
             <p>{item.detail}</p>

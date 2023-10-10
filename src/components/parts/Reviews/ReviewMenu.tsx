@@ -24,7 +24,6 @@ const ReviewMenu: FC<{
           },
         });
         if (response.ok) {
-          console.log("レビューが削除されました");
           router.refresh();
           setIsOpen(true);
         } else {
@@ -47,7 +46,6 @@ const ReviewMenu: FC<{
           },
         });
         if (response.ok) {
-          console.log("レビューが報告されました");
           setIsReportOpen(true);
         } else {
           console.error("レビューの報告中にエラーが発生しました");

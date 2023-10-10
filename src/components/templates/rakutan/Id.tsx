@@ -9,16 +9,14 @@ import NavAnchor from "@/src/components/parts/common/NavAnchor";
 import ReviewList from "@/src/components/parts/Reviews/ReviewList";
 import AvgStar from "@/src/components/parts/rakutan/AvgStar";
 import CircleGragh from "@/src/components/parts/Reviews/CircleGragh";
+import { RakutanWithReviews } from "@/src/@types/rakutan";
 
 type Props = {
-  data: Array<CourseSummary & { reviews: Review[] }>;
+  data: RakutanWithReviews;
 };
 
 const Id: FC<Props> = ({ data }) => {
-  const reputationSum = data[0].reviews.map((item) => {
-    return item.reputation;
-  });
-  const [updatedReviews, setUpdatedReviews] = useState(data[0].reviews);
+  const [updatedReviews, setUpdatedReviews] = useState(data.reviews);
 
   useEffect(() => {
     setUpdatedReviews(updatedReviews);
@@ -29,26 +27,26 @@ const Id: FC<Props> = ({ data }) => {
       <div className="px-4 lg:px-16 lg:flex justify-between mb-6">
         <div className="lg:w-[49%]">
           <p className="text-xl lg:text-4xl font-medium mb-1">
-            {data[0].subjectName}
+            {data.course.subjectName}
           </p>
           <p className="text-lg lg:text-2xl text-gray-500 mb-1">
-            {data[0].locationName}
+            {data.course.locationName}
           </p>
-          <AvgStar reputationSum={reputationSum} />
+          <AvgStar avg_reputation={data.course.avg_reputation} />
           <p className="text-sm font-medium text-gray-500 mb-1">
-            {data[0].reviews.length === 0 ? "0" : data[0].reviews.length}
+            {data.reviews.length === 0 ? "0" : data.reviews.length}
             件の評価
           </p>
           <div className="mb-8">
             <NavAnchor
-              href={`https://gslbs.keio.jp/syllabus/${data[0].syllabusDetailUrl}`}
+              href={`https://gslbs.keio.jp/syllabus/detail?ttblyr=2023&entno=${data.course.entryNumber}&lang=jp`}
               text="シラバスを見る"
             />
           </div>
 
           <div className="border border-t-1 border-b-0 border-x-0">
             <div className="text-gray-500 mb-2 mt-4">
-              {data[0].lessonModeName === "対面授業（主として対面授業）" ? (
+              {data.course.lessonModeName === "対面授業（主として対面授業）" ? (
                 <div className="flex">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +99,7 @@ const Id: FC<Props> = ({ data }) => {
                   d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
                 />
               </svg>
-              {data[0].faculties.map((faculty, index) => {
+              {data.course.faculties.map((faculty, index) => {
                 return (
                   <span className="mr-2 items-center" key={index}>
                     {faculty}
@@ -124,30 +122,39 @@ const Id: FC<Props> = ({ data }) => {
                   d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <p>{data[0].dayOfWeekPeriod}</p>
+              <p>{data.course.dayOfWeekPeriod}</p>
             </div>
           </div>
           <div className="border border-t-1 border-b-0 border-x-0">
-            <HasReport reviews={data[0].reviews} />
-            <HasAttendance reviews={data[0].reviews} />
-            <HasExam reviews={data[0].reviews} />
+            <HasReport
+              agg_hasReport={data.course.agg_hasReport}
+              count_reviews={data.course.count_reviews}
+            />
+            <HasAttendance
+              agg_attendance={data.course.agg_attendance}
+              count_reviews={data.course.count_reviews}
+            />
+            <HasExam
+              agg_hasExam={data.course.agg_hasExam}
+              count_reviews={data.course.count_reviews}
+            />
           </div>
         </div>
         <div className="lg:w-[460px] mt-10 lg:mt-0">
           <HeadingXs heading="口コミを投稿してみよう" />
 
           <div className="mt-6">
-            <PostReviews courseId={data[0].id} />
+            <PostReviews courseId={data.course.id} />
           </div>
         </div>
       </div>
       <div className="px-4 lg:px-16 mb-6">
         <HeadingXs heading="授業情報" />
-        <CircleGragh reviews={data[0].reviews} />
+        <CircleGragh reviews={data.reviews} />
       </div>
       <div className="px-4 lg:px-16 justify-between">
         <HeadingXs heading="口コミ一覧" />
-        {data[0].reviews.length == 0 ? (
+        {data.reviews.length == 0 ? (
           <p className="text-center text-lg mt-4">口コミがまだありません…</p>
         ) : (
           <ReviewList reviews={updatedReviews} />
