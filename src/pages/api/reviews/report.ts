@@ -30,6 +30,8 @@ export default async function reportHandler(
     } catch (error) {
       console.error(error);
       return res.status(400).json({ success: false });
+    } finally {
+      transporter.close();
     }
   }
 }

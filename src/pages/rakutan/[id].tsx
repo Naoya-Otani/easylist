@@ -1,15 +1,16 @@
 import React from "react";
 import { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import Head from "next/head";
-import { PrismaClient, CourseSummary, Review } from "@prisma/client";
+import { CourseSummary, Review } from "@prisma/client";
 import Header from "@/src/components/templates/Header";
 import Footer from "@/src/components/templates/Footer";
 import Id from "@/src/components/templates/rakutan/Id";
+import { prisma } from "@/lib/prisma";
+import { RakutanWithReviews } from "@/src/@types/rakutan";
 
-const prisma = new PrismaClient();
-
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 type Props = {
-  data: Array<CourseSummary & { reviews: Review[] }>;
+  data: RakutanWithReviews;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -34,14 +35,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const data = await prisma.courseSummary.findMany({
-    where: {
-      id: Number(params?.id),
+  const data = await fetch(`${baseUrl}/api/rakutan/postRakutanById`, {
+    method: "POST",
+    body: JSON.stringify({ id: params?.id }),
+    headers: {
+      "Content-Type": "application/json",
     },
-    include: {
-      reviews: true,
-    },
-  });
+  })
+    .then((res) => res.json())
+    .catch((error) => console.error(error));
 
   return {
     props: {
@@ -51,7 +53,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 const id: NextPage<Props> = ({ data }) => {
-  const title = `${data[0].locationName} ${data[0].subjectName}`;
+  const title = `${data.course.locationName} ${data.course.subjectName}`;
   return (
     <>
       <Head>
@@ -60,7 +62,7 @@ const id: NextPage<Props> = ({ data }) => {
         <meta charSet="utf-8" />
         <meta
           name="description"
-          content={`${data[0].locationName} ${data[0].subjectName}の詳細ページです。`}
+          content={`${data.course.locationName} ${data.course.subjectName}の詳細ページです。`}
         ></meta>
       </Head>
       <Header />

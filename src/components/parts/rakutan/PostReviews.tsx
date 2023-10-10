@@ -78,7 +78,6 @@ const PostReviews: FC<{
       });
 
       if (response.ok) {
-        console.log("レビューが作成されました");
         resetForm();
         localStorage.removeItem("formData");
         router.refresh();
