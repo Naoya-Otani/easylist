@@ -13,7 +13,7 @@ const SearchBar = () => {
   const performSearch = async (query: string) => {
     const sanitizedQuery = sanitize(query);
     const encodedQuery = encodeURIComponent(sanitizedQuery);
-    const url = `/api/rakutan/search?q=${encodedQuery}`;
+    const url = `/api/rakutan/search?&reviews=avg&filter=normal&query=${encodedQuery}`;
 
     if (isBlankString(searchQuery)) {
       return;
