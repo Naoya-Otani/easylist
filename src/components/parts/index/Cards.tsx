@@ -20,9 +20,9 @@ const Cards = () => {
             d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
           />
         </svg>
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+        <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           学びの幅を広げよう
-        </h5>
+        </h2>
         <p className="mb-3 font-normal text-gray-500">
           当サイトでは、幅広い授業から様々な情報を取り揃えています。
           自分に合った授業を見つけ、単位取得を目指しましょう。
@@ -45,9 +45,9 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 ">
+        <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 ">
           効率的に授業を選択しよう
-        </h5>
+        </h2>
         <p className="mb-3 font-normal text-gray-500">
           単位の取りやすさや実際に受けた人の感想を参考にして、効率的に履修を組みましょう。
         </p>
@@ -69,9 +69,9 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+        <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           楽単を見つけよう
-        </h5>
+        </h2>
         <p className="mb-3 font-normal text-gray-500">
           当サイトでは、授業の口コミ情報を随時更新しています。
           とりあえず、人文社会から楽単を探してみましょう。
@@ -94,9 +94,9 @@ const Cards = () => {
           />
         </svg>
 
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+        <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
           質問はオープンチャットで
-        </h5>
+        </h2>
         <p className="mb-3 font-normal text-gray-500">
           Webで分からないことがあれば、LINEのオープンチャットで質問できます。
           また、その他のSNSでも情報発信しています。

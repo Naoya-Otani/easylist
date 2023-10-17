@@ -14,19 +14,19 @@ const TopText = () => {
             />
           </Link>
           <div className="flex">
-            <h1 className="font-bold tracking-widest mr-2 md:text-6xl">KEIO</h1>
-            <h1 className="font-extralight tracking-widest md:text-6xl">
+            <p className="font-bold tracking-widest mr-2 md:text-6xl">KEIO</p>
+            <p className="font-extralight tracking-widest md:text-6xl">
               EASYLIST
-            </h1>
+            </p>
           </div>
         </div>
       </div>
 
       <div className="font-notoSans flex flex-col justify-around">
         <div className="mb-6">
-          <h2 className="text-3xl md:text-4xl mb-2 font-bold text-center">
+          <h1 className="text-3xl md:text-4xl mb-2 font-bold text-center">
             楽に楽単を見つけよう
-          </h2>
+          </h1>
           <p className="text-center font-normal text-gray-500">
             実際に履修した人の口コミで、 リアルな授業情報をチェック
           </p>
