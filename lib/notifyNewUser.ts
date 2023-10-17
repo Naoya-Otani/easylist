@@ -1,8 +1,10 @@
-const fetch = require("node-fetch");
-
 async function notifyNewUser(user: any) {
   try {
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    if (!webhookUrl) {
+      console.log("Discord通知の送信先が設定されていません");
+      return;
+    }
     const payload = {
       content: `新しいユーザー登録: ${user.name}`,
     };
