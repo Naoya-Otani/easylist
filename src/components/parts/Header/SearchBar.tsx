@@ -56,7 +56,9 @@ const SearchBar = () => {
       <div className="flex items-center justify-center ">
         <div className="relative items-center">
           <div className="absolute left-0 bottom-[100%] bg-yellow-500 rounded-t-md w-fit h-fit flex justify-center items-center px-4 py-2">
-            <p className="text-white text-sm font-bold">授業名か先生名で検索</p>
+            <p className="text-white tracking-wide text-sm font-bold">
+              授業名か先生名で検索
+            </p>
           </div>
           <input
             type="text"
@@ -68,6 +70,7 @@ const SearchBar = () => {
           <button
             className="absolute right-0 top-0 bottom-0"
             onClick={handleSearch}
+            aria-label="検索ボタン"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
