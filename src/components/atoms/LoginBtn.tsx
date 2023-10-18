@@ -6,7 +6,7 @@ const Button = () => {
     <>
       {!session && (
         <button
-          className="flex justify-center items-center border-1 border-yellow-500 rounded-md px-4 py-2 text-sm duration-300 bg-white"
+          className="flex justify-center items-center rounded-md px-4 py-2 text-sm duration-300 bg-white hover:bg-yellow-100"
           onClick={() => signIn()}
         >
           <svg
@@ -35,7 +35,7 @@ const Button = () => {
             />
           </svg>
           <span className="flex items-center font-medium font-notoSans text-gray-800 pb-[2px]">
-            ログイン
+            サインイン
           </span>
         </button>
       )}

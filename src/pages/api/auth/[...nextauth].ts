@@ -1,10 +1,12 @@
 import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import notifyNewUser from "@/lib/notifyNewUser";
+import notifyAuthError from "@/lib/notifyAuthError";
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -13,8 +15,7 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
-      await notifyNewUser(user);
+    async signIn() {
       return true;
     },
     async session({ session, user }) {
@@ -23,9 +24,26 @@ export default NextAuth({
     },
   },
   secret: "secret",
-  theme: {
-    colorScheme: "light",
-    logo: "/icon-easylist.svg",
-    brandColor: "#FEF9C3",
+  events: {
+    async createUser({ user }) {
+      await notifyNewUser(user);
+    },
   },
-});
+  logger: {
+    error(code, metadata) {
+      console.error(code, metadata);
+      notifyAuthError(metadata, code);
+    },
+    warn(code) {
+      console.warn(code);
+    },
+    debug(code, metadata) {
+      console.debug(code, metadata);
+    },
+  },
+  pages: {
+    signIn: "/auth/signin",
+  },
+};
+
+export default NextAuth(authOptions);

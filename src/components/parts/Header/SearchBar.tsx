@@ -52,8 +52,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="lg:bg-bgSearchbar lg:bg-cover lg:aspect-[5/1] lg:py-24 rounded-sm">
-      <div className="flex items-center justify-center ">
+    <div className="lg:bg-bgSearchbar lg:bg-cover lg:aspect-[5/1] lg:py-24">
+      <div className="flex items-center justify-center md:mt-14 lg:mt-0">
         <div className="relative items-center">
           <div className="absolute left-0 bottom-[100%] bg-yellow-500 rounded-t-md w-fit h-fit flex justify-center items-center px-4 py-2">
             <p className="text-white tracking-wide text-sm font-bold">
