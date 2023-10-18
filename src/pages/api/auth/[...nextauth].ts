@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/prisma";
+import notifyNewUser from "@/lib/notifyNewUser";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
@@ -13,7 +13,8 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn() {
+    async signIn({ user }) {
+      await notifyNewUser(user);
       return true;
     },
     async session({ session, user }) {
