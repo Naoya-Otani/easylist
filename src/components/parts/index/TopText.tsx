@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const TopText = () => {
   return (
-    <div className="outlineStyle">
+    <>
       <div className="flex items-center justify-center my-12">
         <div className="md:flex items-start lg:ml-4 font-gothicA1 hidden">
           <Link href="/">
@@ -22,7 +22,7 @@ const TopText = () => {
         </div>
       </div>
 
-      <div className="font-notoSans flex flex-col justify-around">
+      <div className="font-notoSans flex flex-col justify-around px-4">
         <div className="mb-6">
           <h1 className="text-3xl md:text-4xl mb-2 font-bold text-center">
             楽に楽単を見つけよう
@@ -32,7 +32,7 @@ const TopText = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

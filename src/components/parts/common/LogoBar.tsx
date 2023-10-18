@@ -10,8 +10,8 @@ const LogoBar = () => {
           className="w-7 h-7 mr-4 md:mr-6"
         />
       </Link>
-      <h1 className="font-bold tracking-widest mr-2 text-2xl">KEIO</h1>
-      <h1 className="font-extralight tracking-widest text-2xl">EASYLIST</h1>
+      <p className="font-bold tracking-widest mr-2 text-2xl">KEIO</p>
+      <p className="font-extralight tracking-widest text-2xl">EASYLIST</p>
     </div>
   );
 };
