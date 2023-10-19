@@ -158,7 +158,8 @@ const id: NextPage<Props> = ({ data }) => {
         ></meta>
       </Head>
       <Header />
-      <Id data={data} />
+      {/* <Id data={data} /> */}
+      <Id id={data.course.id} />
       <Footer />
     </>
   );
