@@ -1,6 +1,8 @@
-import React, { useState, FormEvent, useEffect, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import notifyMutationError from "@/lib/notifyMutationError";
+import useSWRMutation from "swr/mutation";
+
 import ReportLength from "../PostReviews/ReportLength";
 import HasExam from "../PostReviews/HasExam";
 import Attendance from "../PostReviews/Attendance";
@@ -24,7 +26,6 @@ const PostReviews: FC<{
   const [reputation, setReputation] = useState(3);
   const [detail, setDetail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const storedData = localStorage.getItem("formData");
@@ -50,24 +51,18 @@ const PostReviews: FC<{
     setDetail("");
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const userId = session?.userId;
-    const formData = {
-      attendance,
-      hasReport,
-      reportLength,
-      hasExam,
-      allowedCheatsheet,
-      reputation,
-      detail,
-    };
+  const formData = {
+    attendance,
+    hasReport,
+    reportLength,
+    hasExam,
+    allowedCheatsheet,
+    reputation,
+    detail,
+  };
 
-    localStorage.setItem("formData", JSON.stringify(formData));
-    if (!session) {
-      signIn("google", { callbackUrl: window.location.href });
-      return;
-    }
+  const postReview = async () => {
+    const userId = session?.userId;
     try {
       const response = await fetch("/api/reviews/post", {
         method: "POST",
@@ -76,23 +71,47 @@ const PostReviews: FC<{
         },
         body: JSON.stringify({ formData, userId, courseId }),
       });
-
-      if (response.ok) {
-        resetForm();
-        localStorage.removeItem("formData");
-        router.refresh();
-        setIsOpen(true);
-      } else {
-        console.error("レビューの作成中にエラーが発生しました");
+      if (!response.ok) {
+        notifyMutationError(response);
+        throw new Error("レビューの作成にエラーが発生しました");
       }
     } catch (error) {
-      console.error("レビューの作成中にエラーが発生しました:", error);
+      throw new Error("レビューの作成中にエラーが発生しました");
     }
   };
 
+  const preCheck = async () => {
+    if (!session) {
+      localStorage.setItem("formData", JSON.stringify(formData));
+      await signIn("google", { callbackUrl: window.location.href });
+      return;
+    }
+  };
+
+  const { trigger, isMutating } = useSWRMutation(
+    "RakutanWithReviews",
+    postReview,
+    {
+      onSuccess: () => {
+        resetForm();
+        localStorage.removeItem("formData");
+        setIsOpen(true);
+      },
+      onError: (error) => {
+        notifyMutationError(error);
+      },
+    }
+  );
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          preCheck();
+          trigger();
+        }}
+      >
         <Attendance attendance={attendance} setAttendance={setAttendance} />
         <HasReport
           hasReport={hasReport}
@@ -122,7 +141,7 @@ const PostReviews: FC<{
         <Detail detail={detail} setDetail={setDetail} />
         <div className="flex justify-between items-start">
           <Notes />
-          <SubmitBtn />
+          <SubmitBtn isMutating={isMutating} />
         </div>
       </form>
       <DoneModal

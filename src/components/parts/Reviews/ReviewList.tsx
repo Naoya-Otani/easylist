@@ -14,7 +14,7 @@ const ReviewList: FC<{
   reviews: Review[];
 }> = ({ reviews }) => {
   return (
-    <div>
+    <>
       {reviews.map((item, index) => {
         const date = new Date(item.createdAt);
         return (
@@ -39,7 +39,7 @@ const ReviewList: FC<{
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

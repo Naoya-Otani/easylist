@@ -2,38 +2,17 @@ import { Menu, Transition } from "@headlessui/react";
 import React, { Fragment, FC, useState } from "react";
 import DoneModal from "../common/DoneModal";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import useSWRMutation from "swr/mutation";
+import notifyMutationError from "@/lib/notifyMutationError";
 
 const ReviewMenu: FC<{
   reviewId: number;
   userId: string;
 }> = ({ reviewId, userId }) => {
   const { data: session } = useSession();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isReportOpen, setIsReportOpen] = useState(false);
   const isMatch = session?.userId === userId;
-  const deleteHandler = async () => {
-    if (isMatch) {
-      try {
-        const response = await fetch("/api/reviews/delete", {
-          method: "POST",
-          body: JSON.stringify({ reviewId }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        if (response.ok) {
-          router.refresh();
-          setIsOpen(true);
-        } else {
-          console.error("レビューの削除中にエラーが発生しました");
-        }
-      } catch (error) {
-        console.error("レビューの削除中にエラーが発生しました:", error);
-      }
-    }
-  };
 
   const reportHandler = async () => {
     if (!isMatch) {
@@ -55,6 +34,37 @@ const ReviewMenu: FC<{
       }
     }
   };
+
+  const deleteReview = async () => {
+    try {
+      const response = await fetch("/api/reviews/delete", {
+        method: "POST",
+        body: JSON.stringify({ reviewId }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        notifyMutationError(response);
+        throw new Error("レビューの削除にエラーが発生しました");
+      }
+    } catch (error) {
+      throw new Error("レビューの削除中にエラーが発生しました");
+    }
+  };
+
+  const { trigger, isMutating } = useSWRMutation(
+    "RakutanWithReviews",
+    deleteReview,
+    {
+      onSuccess: () => {
+        setIsOpen(true);
+      },
+      onError: (error) => {
+        console.error(error);
+      },
+    }
+  );
 
   return (
     <div className="absolute top-0 right-0 text-right ">
@@ -122,7 +132,10 @@ const ReviewMenu: FC<{
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      onClick={deleteHandler}
+                      onClick={() => {
+                        trigger();
+                      }}
+                      disabled={isMutating || !isMatch}
                       className={`${
                         active ? "bg-yellow-500 text-white" : "text-gray-800"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}

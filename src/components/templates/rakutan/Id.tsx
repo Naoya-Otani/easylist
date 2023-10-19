@@ -1,5 +1,5 @@
-import { FC, useState, useEffect } from "react";
-import { CourseSummary, Review } from "@prisma/client";
+import { FC } from "react";
+import Link from "next/link";
 import HasReport from "@/src/components/parts/common/rakutanCard/HasReport";
 import HasAttendance from "@/src/components/parts/common/rakutanCard/HasAttendance";
 import HasExam from "@/src/components/parts/common/rakutanCard/HasExam";
@@ -10,17 +10,43 @@ import ReviewList from "@/src/components/parts/Reviews/ReviewList";
 import AvgStar from "@/src/components/parts/rakutan/AvgStar";
 import CircleGragh from "@/src/components/parts/Reviews/CircleGragh";
 import { RakutanWithReviews } from "@/src/@types/rakutan";
+import useSWR from "swr";
+import Loading from "../../parts/common/Loading";
 
-type Props = {
-  data: RakutanWithReviews;
-};
+const Id: FC<{ id: number }> = ({ id }) => {
+  const apiKey = "/api/rakutan/postRakutanById";
+  const fetcher = () =>
+    fetch(apiKey, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: id }),
+    }).then((res) => res.json());
 
-const Id: FC<Props> = ({ data }) => {
-  const [updatedReviews, setUpdatedReviews] = useState(data.reviews);
+  const {
+    data,
+    error,
+    isLoading,
+  }: {
+    data: RakutanWithReviews;
+    error?: any;
+    isLoading: boolean;
+  } = useSWR("RakutanWithReviews", fetcher);
 
-  useEffect(() => {
-    setUpdatedReviews(updatedReviews);
-  }, [updatedReviews]);
+  if (isLoading)
+    return (
+      <div className="outlineStyle font-notoSans w-screen h-[80vh] justify-center items-center">
+        <Loading />
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="outlineStyle font-notoSans w-screen h-[80vh] justify-center items-center">
+        エラーが発生しました <br /> <Link href={"/"}>トップに戻る</Link>
+      </div>
+    );
 
   return (
     <div className="outlineStyle font-notoSans">
@@ -157,7 +183,7 @@ const Id: FC<Props> = ({ data }) => {
         {data.reviews.length == 0 ? (
           <p className="text-center text-lg mt-4">口コミがまだありません…</p>
         ) : (
-          <ReviewList reviews={updatedReviews} />
+          <ReviewList reviews={data.reviews} />
         )}
       </div>
     </div>
