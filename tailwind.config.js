@@ -47,6 +47,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/forms"),
+    require("./plugins/chartRotateAnimation"),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         ".input-range": {

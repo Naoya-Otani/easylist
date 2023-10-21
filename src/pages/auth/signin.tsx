@@ -59,7 +59,9 @@ const signin = ({
               className="w-60 h-14 py-2 px-3 bg-yellow-100 rounded-lg flex justify-center items-center hover:bg-yellow-200 duration-300"
             >
               <button
-                onClick={() => signIn(provider.id)}
+                onClick={() =>
+                  signIn(provider.id, { callbackUrl: window.location.href })
+                }
                 className="w-full flex justify-center items-center"
                 aria-label="サインインボタン"
               >
