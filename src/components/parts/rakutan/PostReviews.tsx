@@ -80,16 +80,16 @@ const PostReviews: FC<{
     }
   };
 
-  const preCheck = async () => {
+  const preCheck = () => {
     if (!session) {
       localStorage.setItem("formData", JSON.stringify(formData));
-      await signIn("google", { callbackUrl: window.location.href });
+      signIn("google", { callbackUrl: window.location.href });
       return;
     }
   };
 
   const { trigger, isMutating } = useSWRMutation(
-    "RakutanWithReviews",
+    "/api/rakutan/postRakutanById",
     postReview,
     {
       onSuccess: () => {

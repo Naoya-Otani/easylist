@@ -15,14 +15,24 @@ import Loading from "../../parts/common/Loading";
 
 const Id: FC<{ id: number }> = ({ id }) => {
   const apiKey = "/api/rakutan/postRakutanById";
-  const fetcher = () =>
-    fetch(apiKey, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: id }),
-    }).then((res) => res.json());
+  // const fetcher = () =>
+  //   fetch(apiKey, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ id: id }),
+  //   }).then((res) => res.json());
+
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ id: id }),
+  };
+  const fetcher = (url: string) =>
+    fetch(url, fetchOptions).then((res) => res.json());
 
   const {
     data,
@@ -32,7 +42,7 @@ const Id: FC<{ id: number }> = ({ id }) => {
     data: RakutanWithReviews;
     error?: any;
     isLoading: boolean;
-  } = useSWR("RakutanWithReviews", fetcher);
+  } = useSWR("/api/rakutan/postRakutanById", fetcher);
 
   if (isLoading)
     return (
