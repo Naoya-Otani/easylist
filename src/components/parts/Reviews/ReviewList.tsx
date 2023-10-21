@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Review } from "@prisma/client";
 import StarReview from "./StarReview";
 import ReviewMenu from "./ReviewMenu";
+import ReviewDetail from "./ReviewDetail";
 
 function formatDate(date: Date) {
   const year = date.getFullYear();
@@ -35,7 +36,7 @@ const ReviewList: FC<{
                 {formatDate(date)}
               </p>
             </div>
-            <p>{item.detail}</p>
+            <ReviewDetail detail={item.detail} />
           </div>
         );
       })}
