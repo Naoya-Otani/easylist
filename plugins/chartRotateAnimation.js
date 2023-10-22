@@ -15,5 +15,23 @@ module.exports = function ({ addBase }) {
       position: "absolute",
       "clip-path": "polygon(0 0, 100% 0, 100% 100%)",
     },
+    ".read-more-five-lines": {
+      display: "-webkit-box",
+      "-webkit-line-clamp": "5",
+      "-webkit-box-orient": "vertical",
+      overflow: "hidden",
+    },
+    ".read-more-for-lines": {
+      display: "-webkit-box",
+      "-webkit-line-clamp": "4",
+      "-webkit-box-orient": "vertical",
+      overflow: "hidden",
+    },
+    ".read-more-three-lines": {
+      display: "-webkit-box",
+      "-webkit-line-clamp": "3",
+      "-webkit-box-orient": "vertical",
+      overflow: "hidden",
+    },
   });
 };

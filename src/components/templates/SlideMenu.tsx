@@ -1,15 +1,17 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import SearchBar from "../parts/Header/SearchBar";
 import Button from "../atoms/LoginBtn";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import LogoBar from "../parts/common/LogoBar";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 const SlideMenu: FC<{
   openMenu: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ openMenu, setOpenMenu }) => {
+  useLockBodyScroll();
   return (
     <Transition
       appear

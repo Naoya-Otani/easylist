@@ -21,7 +21,7 @@ const Cards = () => {
           />
         </svg>
         <h2 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
-          学びの幅を広げよう
+          履修の幅を広げよう
         </h2>
         <p className="mb-3 font-normal text-gray-500">
           当サイトでは、幅広い授業から様々な情報を取り揃えています。

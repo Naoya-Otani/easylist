@@ -7,6 +7,11 @@ export default async function handlePostReviews(
 ) {
   const { reviewId } = req.body;
 
+  if (!reviewId) {
+    res.status(400).json({ message: "不正なリクエストです" });
+    return;
+  }
+
   try {
     await prisma.review.delete({
       where: {
