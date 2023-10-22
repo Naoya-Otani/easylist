@@ -288,7 +288,7 @@ const NavBar = () => {
       </div>
       <button
         onClick={menuFunction}
-        className="flex-initial fixed bottom-7 right-7 md:hidden rounded-full bg-white shadow-lg p-2 z-50 border-2 border-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-opacity-75 focus:ring-offset-2 focus:ring-offset-yellow-300"
+        className="flex-initial fixed bottom-7 right-7 md:hidden rounded-full bg-white opacity-90 shadow-lg p-2 z-50 border-2 border-yellow-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-opacity-75 focus:ring-offset-2 focus:ring-offset-yellow-300"
         aria-label="メニューボタン"
       >
         <Bars3Icon className="w-10 h-10 text-yellow-500" />

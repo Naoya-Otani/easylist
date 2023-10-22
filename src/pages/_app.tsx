@@ -5,7 +5,6 @@ import { SessionProvider } from "next-auth/react";
 import Router from "next/router";
 import { useEffect, useState } from "react";
 import Loading from "@/src/components/parts/common/Loading";
-import Script from "next/script";
 import * as gtag from "@/lib/gtag";
 import { useRouter } from "next/router";
 
