@@ -13,6 +13,7 @@ import Detail from "../PostReviews/Detail";
 import SubmitBtn from "../PostReviews/SubmitBtn";
 import DoneModal from "../common/DoneModal";
 import Notes from "../PostReviews/Notes";
+import Loading from "../common/Loading";
 
 const PostReviews: FC<{
   courseId: number;
@@ -102,6 +103,10 @@ const PostReviews: FC<{
       },
     }
   );
+
+  if (isMutating) {
+    return <Loading />;
+  }
 
   return (
     <div>
