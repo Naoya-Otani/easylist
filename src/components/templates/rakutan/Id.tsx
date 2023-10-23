@@ -12,18 +12,9 @@ import CircleGragh from "@/src/components/parts/Reviews/CircleGragh";
 import { RakutanWithReviews } from "@/src/@types/rakutan";
 import useSWR from "swr";
 import Loading from "../../parts/common/Loading";
+import ReportLengthAvg from "../../parts/Reviews/ReportLengthAvg";
 
 const Id: FC<{ id: number }> = ({ id }) => {
-  const apiKey = "/api/rakutan/postRakutanById";
-  // const fetcher = () =>
-  //   fetch(apiKey, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ id: id }),
-  //   }).then((res) => res.json());
-
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -187,6 +178,7 @@ const Id: FC<{ id: number }> = ({ id }) => {
       <div className="px-4 lg:px-16 mb-6">
         <HeadingXs heading="授業情報" />
         <CircleGragh reviews={data.reviews} />
+        <ReportLengthAvg reviews={data.reviews} />
       </div>
       <div className="px-4 lg:px-16 justify-between">
         <HeadingXs heading="口コミ一覧" />

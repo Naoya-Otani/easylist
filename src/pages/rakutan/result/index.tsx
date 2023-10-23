@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import useSWR from "swr";
 import Header from "@/src/components/templates/Header";
 import Footer from "@/src/components/templates/Footer";
 import Loading from "@/src/components/parts/common/Loading";
@@ -9,38 +10,44 @@ import Heading from "@/src/components/parts/common/Heading";
 import RenderRakutan from "@/src/components/parts/rakutan/RenderRakutan";
 import SortFilterBoard from "@/src/components/parts/rakutan/SortFilterBoard";
 import SearchBar from "@/src/components/parts/Header/SearchBar";
+import ErrorPage from "@/src/components/templates/Errors/ErrorPage";
 
 const Index = () => {
   const router = useRouter();
-  const query = router.query.query as string;
-  const [searchResults, setSearchResults] = useState<Rakutan[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState<string>("normal");
   const [sort, setSort] = useState<string>("avg");
 
-  useEffect(() => {
-    const fetchSearchResults = async () => {
-      try {
-        const query = router.query.q as string;
-        const response = await fetch(
-          `/api/rakutan/search?query=${query}&reviews=${sort}&filter=${filter}`
-        );
-        const data = await response.json();
-        setSearchResults(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-    if (router.query.q) {
-      fetchSearchResults();
-    }
-  }, [query, filter, sort]);
+  const {
+    data: searchResults,
+    error,
+    isLoading,
+  } = useSWR(
+    router.query.q
+      ? `/api/rakutan/search?query=${router.query.q}&reviews=${sort}&filter=${filter}`
+      : null,
+    fetcher
+  );
+
+  if (error) {
+    return <ErrorPage errorCode={null} errorMessage={null} />;
+  }
 
   const renderSearchResults = () => {
-    const decodedQuery = decodeURIComponent(router.query.q as string);
+    let decodedQuery;
+    try {
+      decodedQuery = decodeURIComponent(router.query.q as string);
+    } catch (error) {
+      console.error("Invalid query parameter:", error);
+      return (
+        <ErrorPage
+          errorCode={null}
+          errorMessage={"無効なURLが使用されています。"}
+        />
+      );
+    }
+
     let filteringResultMsg = "";
     switch (filter) {
       case "normal":
@@ -57,7 +64,11 @@ const Index = () => {
         break;
     }
 
-    if (searchResults.length === 0) {
+    if (isLoading) {
+      return <Loading />;
+    }
+
+    if (!searchResults || searchResults.length === 0) {
       return (
         <div className="font-notoSans outlineStyle">
           <SortFilterBoard
@@ -96,10 +107,6 @@ const Index = () => {
           </div>
         </div>
       );
-    }
-
-    if (isLoading) {
-      return <Loading />;
     }
 
     return (

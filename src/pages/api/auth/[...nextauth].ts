@@ -37,9 +37,6 @@ export const authOptions: NextAuthOptions = {
     warn(code) {
       console.warn(code);
     },
-    debug(code, metadata) {
-      console.debug(code, metadata);
-    },
   },
   pages: {
     signIn: "/auth/signin",
