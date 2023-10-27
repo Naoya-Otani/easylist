@@ -284,6 +284,12 @@ const NavBar = () => {
             </Menu.Items>
           </Transition>
         </Menu>
+        {/* <Link
+          className="inline-flex justify-center rounded-md  px-4 py-2 text-sm text-gray-800 hover:bg-yellow-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-opacity-75"
+          href={"/user"}
+        >
+          マイページ
+        </Link> */}
         <Button />
       </div>
       <button

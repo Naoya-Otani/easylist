@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 const Button = () => {
   const { data: session } = useSession();
@@ -40,12 +41,12 @@ const Button = () => {
         </button>
       )}
       {session && (
-        <button
-          className="font-notoSans rounded-md px-4 py-2 text-sm bg-yellow-500 text-white duration-300 hover:bg-yellow-600"
-          onClick={() => signOut()}
+        <Link
+          className="inline-flex justify-center rounded-md  px-4 py-2 text-sm text-gray-800 hover:bg-yellow-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-opacity-75"
+          href={"/user"}
         >
-          ログアウト
-        </button>
+          マイページ
+        </Link>
       )}
     </>
   );
