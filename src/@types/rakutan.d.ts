@@ -1,4 +1,4 @@
-import { Review } from "@prisma/client";
+import { CourseSummary, Review } from "@prisma/client";
 
 export type SavedReview = {
   id: number;
@@ -28,4 +28,15 @@ export type Rakutan = {
 export type RakutanWithReviews = {
   course: Rakutan;
   reviews: Review[];
+};
+
+export interface MinimumCourseInfo {
+  id: number;
+  subjectName: string;
+  dayOfWeekPeriod: string;
+  locationName: string;
+}
+
+export type ReviewsWithCourse = Review & {
+  course: MinimumCourseInfo;
 };

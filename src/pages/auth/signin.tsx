@@ -9,7 +9,6 @@ import { authOptions } from "../api/auth/[...nextauth]";
 
 import Head from "next/head";
 import Link from "next/link";
-import Header from "@/src/components/templates/Header";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
@@ -98,7 +97,7 @@ const signin = ({
           ))}
           <p className="text-gray-500 text-xs lg:text-base">
             <Link
-              href="/privacy"
+              href="/aboutus/policy"
               className="underline hover:text-blue-500 hover:no-underline"
             >
               プライバシーポリシー
@@ -107,7 +106,6 @@ const signin = ({
           </p>
         </div>
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
