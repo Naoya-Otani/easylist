@@ -5,6 +5,7 @@ export default function Document() {
   return (
     <Html lang="ja">
       <Head>
+        <meta property="og:image" content="/ogpl.png" />
         <link rel="icon" href="/icon-easylist.svg" />
         {GA_MEASUREMENT_ID && (
           <>
