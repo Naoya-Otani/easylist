@@ -1,17 +1,20 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import SearchBar from "../parts/Header/SearchBar";
-import Button from "../atoms/LoginBtn";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import LogoBar from "../parts/common/LogoBar";
 import { useLockBodyScroll } from "@uidotdev/usehooks";
+import { useSession } from "next-auth/react";
+import AuthBtn from "../atoms/Button/AuthBtn";
 
 const SlideMenu: FC<{
   openMenu: boolean;
   setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ openMenu, setOpenMenu }) => {
   useLockBodyScroll();
+  const { data: session } = useSession();
+
   return (
     <Transition
       appear
@@ -20,7 +23,7 @@ const SlideMenu: FC<{
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="fixed inset-0 bg-white w-screen h-screen flex flex-col justify-between z-30 overflow-hidden ">
+      <div className="fixed inset-0 bg-white w-screen h-[100svh] flex flex-col justify-between z-30 overflow-hidden">
         <div className="relative flex justify-center my-6">
           <LogoBar />
         </div>
@@ -332,15 +335,25 @@ const SlideMenu: FC<{
                 </Transition>
               </Menu>
             </li>
+            {session && (
+              <li className="block py-2 pl-3 pr-4">
+                <Link
+                  className="inline-flex w-full items-center rounded-md  px-4 py-2 text-sm text-gray-800 hover:bg-yellow-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-opacity-75"
+                  href={"/user"}
+                >
+                  <h1 className="text-xl font-bold">マイページ</h1>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
-        <div className="h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
+        <div className="min-h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
           <div className="mt-6">
             <SearchBar />
           </div>
           <div className="w-fit rounded-md shadow-lg">
-            <Button />
+            <AuthBtn />
           </div>
         </div>
       </div>
