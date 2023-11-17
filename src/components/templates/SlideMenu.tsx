@@ -14,6 +14,7 @@ const SlideMenu: FC<{
 }> = ({ openMenu, setOpenMenu }) => {
   useLockBodyScroll();
   const { data: session } = useSession();
+
   return (
     <Transition
       appear
@@ -22,7 +23,7 @@ const SlideMenu: FC<{
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="fixed inset-0 bg-white w-screen h-screen flex flex-col justify-between z-30 overflow-hidden ">
+      <div className="fixed inset-0 bg-white w-screen h-[100svh] flex flex-col justify-between z-30 overflow-hidden">
         <div className="relative flex justify-center my-6">
           <LogoBar />
         </div>
@@ -347,7 +348,7 @@ const SlideMenu: FC<{
           </ul>
         </div>
 
-        <div className="h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
+        <div className="min-h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
           <div className="mt-6">
             <SearchBar />
           </div>
