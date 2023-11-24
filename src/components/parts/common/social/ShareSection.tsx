@@ -7,7 +7,10 @@ const ShareSection: React.FC<{
   professor: string;
   subject: string;
 }> = ({ id, professor, subject }) => {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/rakutan/${id}`;
+  if (process.env.NEXT_PUBLIC_BASE_URL === undefined) return <></>;
+  const url = `${encodeURIComponent(
+    process.env.NEXT_PUBLIC_BASE_URL
+  )}/rakutan/${id}`;
   const title = `${encodeURIComponent(professor)} ${encodeURIComponent(
     subject
   )}の授業情報を見るならこちら！%0a%0a`;
