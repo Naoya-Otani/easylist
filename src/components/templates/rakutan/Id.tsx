@@ -13,6 +13,9 @@ import { RakutanWithReviews } from "@/src/@types/rakutan";
 import useSWR from "swr";
 import Loading from "../../parts/common/Loading";
 import ReportLengthAvg from "../../parts/Reviews/ReportLengthAvg";
+import NoReviews from "../../parts/Reviews/NoReviews";
+import NoData from "../../parts/Reviews/NoData";
+import ShareSection from "../../parts/common/social/ShareSection";
 
 const Id: FC<{ id: number }> = ({ id }) => {
   const fetchOptions = {
@@ -51,7 +54,7 @@ const Id: FC<{ id: number }> = ({ id }) => {
 
   return (
     <div className="outlineStyle font-notoSans">
-      <div className="px-4 lg:px-16 lg:flex justify-between mb-6">
+      <div className="px-4 lg:px-16 lg:flex justify-between my-12 md:my-20 lg:gap-2">
         <div className="lg:w-[49%]">
           <p className="text-xl lg:text-4xl font-medium mb-1">
             {data.course.subjectName}
@@ -175,19 +178,30 @@ const Id: FC<{ id: number }> = ({ id }) => {
           </div>
         </div>
       </div>
-      <div className="px-4 lg:px-16 mb-6">
+      <div className="px-4 lg:px-16 mb-12 md:mb-20">
         <HeadingXs heading="授業情報" />
-        <CircleGragh reviews={data.reviews} />
-        <ReportLengthAvg reviews={data.reviews} />
+        {data.reviews.length == 0 ? (
+          <NoData />
+        ) : (
+          <>
+            <CircleGragh reviews={data.reviews} />
+            <ReportLengthAvg reviews={data.reviews} />
+          </>
+        )}
       </div>
-      <div className="px-4 lg:px-16 justify-between">
+      <div className="px-4 lg:px-16 mb-12 md:mb-20 justify-between">
         <HeadingXs heading="口コミ一覧" />
         {data.reviews.length == 0 ? (
-          <p className="text-center text-lg mt-4">口コミがまだありません…</p>
+          <NoReviews />
         ) : (
           <ReviewList reviews={data.reviews} />
         )}
       </div>
+      <ShareSection
+        id={id}
+        professor={data.course.locationName}
+        subject={data.course.subjectName}
+      />
     </div>
   );
 };
