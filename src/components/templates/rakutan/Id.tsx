@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Link from "next/link";
 import HasReport from "@/src/components/parts/common/rakutanCard/HasReport";
 import HasAttendance from "@/src/components/parts/common/rakutanCard/HasAttendance";
@@ -16,8 +16,11 @@ import ReportLengthAvg from "../../parts/Reviews/ReportLengthAvg";
 import NoReviews from "../../parts/Reviews/NoReviews";
 import NoData from "../../parts/Reviews/NoData";
 import ShareSection from "../../parts/common/social/ShareSection";
+import ShareModal from "../../parts/rakutan/ShareModal";
+import ShareBtn from "../../atoms/Button/ShareBtn";
 
 const Id: FC<{ id: number }> = ({ id }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -197,7 +200,17 @@ const Id: FC<{ id: number }> = ({ id }) => {
           <ReviewList reviews={data.reviews} />
         )}
       </div>
-      <ShareSection
+      {/* <ShareSection
+        id={id}
+        professor={data.course.locationName}
+        subject={data.course.subjectName}
+      /> */}
+      <div className="px-8 lg:px-16 flex justify-end">
+        <ShareBtn setIsOpen={setIsOpen} />
+      </div>
+      <ShareModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
         id={id}
         professor={data.course.locationName}
         subject={data.course.subjectName}
