@@ -1,4 +1,5 @@
 import React, { FC, Fragment } from "react";
+import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 
 const DoneModal: FC<{
@@ -6,9 +7,28 @@ const DoneModal: FC<{
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
   body: string;
-}> = ({ isOpen, setIsOpen, title, body }) => {
+  status?: "posted" | "deleted" | "reported";
+}> = ({ isOpen, setIsOpen, title, body, status }) => {
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+  const statusImage = {
+    posted: {
+      src: "/posted.svg",
+      width: 303.71,
+      height: 525.42,
+    },
+    deleted: {
+      src: "/deleted.svg",
+      width: 920.30414,
+      height: 515.08657,
+    },
+    reported: {
+      src: "/reported.svg",
+      width: 575.8112,
+      height: 524.00008,
+    },
   };
 
   return (
@@ -45,6 +65,17 @@ const DoneModal: FC<{
                   {title}
                 </Dialog.Title>
                 <div className="mt-2">
+                  {status !== undefined && (
+                    <Image
+                      src={statusImage[status].src}
+                      alt={status}
+                      width={statusImage[status].width}
+                      height={statusImage[status].height}
+                      className={`${
+                        status === "posted" ? "h-[200px]" : "w-[50%]"
+                      } block mx-auto mt-4 mb-8 pointer-events-none`}
+                    />
+                  )}
                   <p className="text-sm text-gray-500">{body}</p>
                 </div>
 

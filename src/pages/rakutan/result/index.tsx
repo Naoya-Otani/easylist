@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Image from "next/image";
 import useSWR from "swr";
 import Header from "@/src/components/templates/Header";
 import Footer from "@/src/components/templates/Footer";
@@ -79,6 +80,13 @@ const Index = () => {
           />
           <div className="p-4">
             <div className="mb-14">
+              <Image
+                src="/not-found.svg"
+                alt="検索結果なし"
+                width={656}
+                height={458.68642}
+                className="sm:w-[50%] md:w-[40%] block mx-auto mb-8 pointer-events-none"
+              />
               <p className="text-gray-800 text-lg lg:text-2xl text-center font-semibold mb-2">
                 検索結果はありませんでした
               </p>

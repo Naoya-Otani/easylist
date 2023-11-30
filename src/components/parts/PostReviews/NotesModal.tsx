@@ -1,5 +1,6 @@
 import React, { FC, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import Image from "next/image";
 
 const DoneModal: FC<{
   isOpen: boolean;
@@ -43,13 +44,24 @@ const DoneModal: FC<{
                   注意事項
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    ・投稿にはGoogleアカウント(keio.jp)が必要です
-                    <br />
-                    ・ログイン時に提供される個人情報は当サイト以外では使用されません
-                    <br />
-                    ・授業と関係のない書き込みはご遠慮下さい
-                  </p>
+                  <Image
+                    src="/warning.svg"
+                    alt="注意"
+                    width={790}
+                    height={512.20805}
+                    className="w-[240px] block mx-auto mt-4 mb-8 pointer-events-none"
+                  />
+                  <ul className="text-sm text-gray-500 pl-4 ">
+                    <li className="relative before:absolute before:content-[''] before:bg-gray-500 before:rounded-full before:w-1 before:h-1 before:top-[7px] before:left-[-10px]">
+                      投稿にはGoogleアカウント(keio.jp)が必要です
+                    </li>
+                    <li className="relative before:absolute before:content-[''] before:bg-gray-500 before:rounded-full before:w-1 before:h-1 before:top-[7px] before:left-[-10px]">
+                      ログイン時に提供される個人情報は当サイト以外では使用されません
+                    </li>
+                    <li className="relative before:absolute before:content-[''] before:bg-gray-500 before:rounded-full before:w-1 before:h-1 before:top-[7px] before:left-[-10px]">
+                      授業と関係のない書き込みはご遠慮下さい
+                    </li>
+                  </ul>
                 </div>
 
                 <div className="mt-4 flex justify-end">

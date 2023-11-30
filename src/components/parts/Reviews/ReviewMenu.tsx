@@ -166,12 +166,14 @@ const ReviewMenu: FC<{
         setIsOpen={setIsDeleteOpen}
         title="レビューを削除しました！"
         body="レビューを削除しました。"
+        status="deleted"
       />
       <DoneModal
         isOpen={isReportOpen}
         setIsOpen={setIsReportOpen}
         title="レビューを報告しました！"
-        body="管理者がレビューをチェックします。"
+        body="報告ありがとうございます。管理者がレビューをチェックします。"
+        status="reported"
       />
       {isMutating && (
         <div className="fixed inset-0 overflow-hidden flex justify-center items-center bg-white opacity-50">
