@@ -20,6 +20,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jsonTriming/triming.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "jsonTriming/triming.js",
+    "prisma/import/extract.mjs"
+  ],
   "exclude": ["node_modules"]
 }

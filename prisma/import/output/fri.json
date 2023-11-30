@@ -1,0 +1,722 @@
+[
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "96288",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=96288&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（テニス）２５（初級）",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "39776",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39776&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "31904",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=31904&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "36005",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=36005&lang=jp",
+    "locationName": "石手 靖",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "78726",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=78726&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "96900",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=96900&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（テニス）２５（初級）",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "39795",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39795&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "16804",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=16804&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "40044",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=40044&lang=jp",
+    "locationName": "石手 靖",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金1",
+    "academicFieldName": "体育",
+    "entryNumber": "80593",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=80593&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（エアロビクス）１２",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "28734",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=28734&lang=jp",
+    "locationName": "佐々木 玲子",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（サッカー）４０",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "27540",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=27540&lang=jp",
+    "locationName": "大嶽 真人",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（柔道）３０（男女共習）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "31187",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=31187&lang=jp",
+    "locationName": "朝飛 大",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "00718",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=00718&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（テニス）２５（初級）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "39264",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39264&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "16345",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=16345&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "39321",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39321&lang=jp",
+    "locationName": "石手 靖",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（フィットネストレーニング）２０",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "16404",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=16404&lang=jp",
+    "locationName": "塩島 絵未",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "08719",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=08719&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "三田",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）２０（ヨガ）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "03227",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=03227&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（エアロビクス）１２",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "28624",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=28624&lang=jp",
+    "locationName": "佐々木 玲子",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（柔道）３０（男女共習）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "30912",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=30912&lang=jp",
+    "locationName": "朝飛 大",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "00722",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=00722&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（テニス）２５（初級）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "39279",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39279&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "16130",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=16130&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "39800",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=39800&lang=jp",
+    "locationName": "石手 靖",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（フィットネストレーニング）２０",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "16863",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=16863&lang=jp",
+    "locationName": "塩島 絵未",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "08723",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=08723&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "三田",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）２０（ヨガ）",
+    "dayOfWeekPeriod": "金2",
+    "academicFieldName": "体育",
+    "entryNumber": "03231",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=03231&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（エアロビクス）１２",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "28309",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=28309&lang=jp",
+    "locationName": "佐々木 玲子",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（サッカー）４０",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "27133",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=27133&lang=jp",
+    "locationName": "大嶽 真人",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（柔道）３０（男女共習）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "31670",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=31670&lang=jp",
+    "locationName": "朝飛 大",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "07765",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=07765&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（テニス）３０（中級）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "45801",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=45801&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "17212",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=17212&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "08776",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=08776&lang=jp",
+    "locationName": "矢作 拓也",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（フィットネストレーニング）２０",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "15647",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=15647&lang=jp",
+    "locationName": "塩島 絵未",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "07583",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=07583&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "三田",
+    "faculties": [
+      "体研"
+    ],
+    "season": "春",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）２０（ヨガ）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "03265",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=03265&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（エアロビクス）１２",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "28313",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=28313&lang=jp",
+    "locationName": "佐々木 玲子",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（柔道）３０（男女共習）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "31354",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=31354&lang=jp",
+    "locationName": "朝飛 大",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（水泳）２５",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "96254",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=96254&lang=jp",
+    "locationName": "梅本 雅之",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（テニス）３０（中級）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "45816",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=45816&lang=jp",
+    "locationName": "原 荘太郎",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バスケットボール）２４",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "17083",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=17083&lang=jp",
+    "locationName": "加藤 大仁",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（バレーボール）３０",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "09476",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=09476&lang=jp",
+    "locationName": "矢作 拓也",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（フィットネストレーニング）２０",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "14621",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=14621&lang=jp",
+    "locationName": "塩島 絵未",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（フットサル）２２",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "08742",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=08742&lang=jp",
+    "locationName": "福士 徳文",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "三田",
+    "faculties": [
+      "体研"
+    ],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）２０（ヨガ）",
+    "dayOfWeekPeriod": "金3",
+    "academicFieldName": "体育",
+    "entryNumber": "03270",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=03270&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  }
+]

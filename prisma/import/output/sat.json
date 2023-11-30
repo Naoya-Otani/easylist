@@ -1,0 +1,54 @@
+[
+  {
+    "campusName": "日吉",
+    "faculties": ["体研"],
+    "season": "春(学期後半)",
+    "subjectName": "体育実技Ａ（バックカントリースキル）１４（カヤック）",
+    "dayOfWeekPeriod": "火3/土1,2,3,4,5",
+    "academicFieldName": "体育",
+    "entryNumber": "85925",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=85925&lang=jp",
+    "locationName": "野口 和行",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": ["体研"],
+    "season": "秋(学期後半)",
+    "subjectName": "体育実技Ａ（バックカントリースキル）１４（バックパッキング）",
+    "dayOfWeekPeriod": "木4/土1,2,3,4,5",
+    "academicFieldName": "体育",
+    "entryNumber": "87067",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=87067&lang=jp",
+    "locationName": "野口 和行",
+    "lessonModeName": "対面授業（主として対面授業）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": ["体研"],
+    "season": "春",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）１５（ヨガ）",
+    "dayOfWeekPeriod": "土2",
+    "academicFieldName": "体育",
+    "entryNumber": "42098",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=42098&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "オンライン授業（主としてオンデマンド形式）",
+    "timetableYear": "2023"
+  },
+  {
+    "campusName": "日吉",
+    "faculties": ["体研"],
+    "season": "秋",
+    "subjectName": "体育実技Ａ（ボディコンディショニング）１５（ヨガ）",
+    "dayOfWeekPeriod": "土2",
+    "academicFieldName": "体育",
+    "entryNumber": "42102",
+    "syllabusDetailUrl": "detail?ttblyr=2023&entno=42102&lang=jp",
+    "locationName": "奥山 靜代",
+    "lessonModeName": "オンライン授業（主としてオンデマンド形式）",
+    "timetableYear": "2023"
+  }
+]

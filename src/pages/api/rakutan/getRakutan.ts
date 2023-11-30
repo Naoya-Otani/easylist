@@ -85,6 +85,9 @@ export default async function getRakutan(
         "総合教育科目自然科学系列",
       ];
       break;
+    case "pe":
+      categoryArray = ["体育"];
+      break;
     default:
       console.error("category parameter is not specified");
       categoryArray = [];
