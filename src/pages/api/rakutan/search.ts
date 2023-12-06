@@ -134,7 +134,7 @@ export default async function searchHandler(
             GROUP BY
                 cs."id"
             ORDER BY
-                ${sortStandard} DESC
+                ${Prisma.raw(sortStandard)} DESC
       `;
       res.status(200).json(data);
     } catch (error) {

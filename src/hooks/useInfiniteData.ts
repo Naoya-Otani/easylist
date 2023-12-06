@@ -12,7 +12,10 @@ function useInfiniteData(
   const fetcher = (url: string): Promise<Rakutan[]> =>
     fetch(url).then((res) => res.json());
 
-  const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher);
+  const { data, error, size, setSize, isLoading } = useSWRInfinite(
+    getKey,
+    fetcher
+  );
 
   const isLoadingInitialData = !data && !error;
   const isLoadingMore =
@@ -28,6 +31,7 @@ function useInfiniteData(
     rakutans,
     isLoadingMore,
     isReachingEnd,
+    isLoading,
     size,
     setSize,
   };

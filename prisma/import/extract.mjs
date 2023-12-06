@@ -9,7 +9,12 @@ const filePathArray = ["mon", "tue", "wed", "thu", "fri", "sat", "other"];
 
 filePathArray.forEach((day) => {
   const filePath = path.join(dataDir, `${day}.json`);
+
   const rawData = fs.readFileSync(filePath, "utf-8");
+  if (!rawData) {
+    return;
+  }
+
   const jsonData = JSON.parse(rawData);
 
   const extractedData = jsonData.searchResultDs
@@ -21,7 +26,7 @@ filePathArray.forEach((day) => {
           season: subject.SMS,
           subjectName: subject.SBJTNM,
           dayOfWeekPeriod: subject.DOWPD,
-          academicFieldName: "体育",
+          academicFieldName: subject.FLDNM,
           entryNumber: subject.ENTNO,
           syllabusDetailUrl: subject.SYLLABUS_DETAIL_URL,
           locationName: subject.LCTNM,

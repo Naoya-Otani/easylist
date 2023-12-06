@@ -14,7 +14,7 @@ const RenderRakutan: FC<Props> = ({ rakutan }) => {
   return (
     <Link
       href={`/rakutan/${rakutan.id}`}
-      className="lg:basis-[49%] flex flex-col bg-gray-50 p-8 rounded-lg mb-8 shadow-lg hover:bg-gray-200 duration-300 transform rotate-x-12 rotate-z-10 transition duration-400 ease-in-out hover:translate-y-1 hover:rotate-x-12 hover:rotate-z-10"
+      className="lg:basis-[49%] flex flex-col bg-gray-50 p-8 rounded-lg mb-8 border border-gray-200 shadow-lg hover:bg-gray-200 duration-300 transform rotate-x-12 rotate-z-10 transition duration-400 ease-in-out hover:translate-y-1 hover:rotate-x-12 hover:rotate-z-10"
     >
       <p className="text-xl lg:text-2xl font-medium mb-1">
         {rakutan.subjectName}

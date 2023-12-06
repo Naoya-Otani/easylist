@@ -11,8 +11,10 @@
     "prismaImport": "./node_modules/.bin/ts-node-esm prisma/import/importCourses.ts",
     "extract": "node ./prisma/import/extract.mjs",
     "import": "node ./prisma/import/import.mjs",
+    "delete": "node ./prisma/import/delete.mjs",
     "validate": "node ./prisma/import/validate.mjs",
-    "prismaGroup": "./node_modules/.bin/ts-node-esm prisma/import/group.ts"
+    "getAcademicFieldName": "node ./prisma/import/getAcademicFieldName.mjs",
+    "getDistinctField": "node ./prisma/import/getDistinctField.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",

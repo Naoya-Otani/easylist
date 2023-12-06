@@ -2,6 +2,7 @@ import { Prisma } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Rakutan } from "@/src/@types/rakutan";
 import { prisma } from "@/lib/prisma";
+import * as fieldName from "@/src/data/academicFieldName";
 
 export default async function getRakutan(
   req: NextApiRequest,
@@ -47,46 +48,19 @@ export default async function getRakutan(
 
   switch (categoryString) {
     case "all":
-      categoryArray = [
-        "総合教育科目Ⅰ類（自然科学系科目）実験科目",
-        "総合教育科目Ⅰ類（自然科学系科目）講義科目",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系（生物・物理・化学）",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系（ＰＥＡＲＬ）",
-        "総合教育科目Ⅱ類（人文・社会科学系科目）講義科目",
-        "総合教育科目第１・２学年設置科目系列Ｘ（人文・社会・学際系列）",
-        "総合教育科目選択必修（Ⅱ系）Ⅱ系　人文・社会系",
-        "総合教育科目選択必修（Ⅱ系）Ⅱ系　人文・社会系（ＰＥＡＲＬ）",
-        "総合教育科目人文科学系列",
-        "総合教育科目社会科学系列",
-        "総合教育科目自然科学系列",
-        "人文科学科目選択",
-        "総合教育科目選択必修（Ⅲ系）Ⅲ系　総合・関連系",
-      ];
+      categoryArray = fieldName.all;
       break;
     case "humanities":
-      categoryArray = [
-        "人文科学科目選択",
-        "総合教育科目Ⅱ類（人文・社会科学系科目）講義科目",
-        "総合教育科目第１・２学年設置科目系列Ｘ（人文・社会・学際系列）",
-        "総合教育科目選択必修（Ⅱ系）Ⅱ系　人文・社会系",
-        "総合教育科目選択必修（Ⅱ系）Ⅱ系　人文・社会系（ＰＥＡＲＬ）",
-        "総合教育科目人文科学系列",
-        "総合教育科目社会科学系列",
-      ];
+      categoryArray = fieldName.humanities;
       break;
     case "nature":
-      categoryArray = [
-        "総合教育科目Ⅰ類（自然科学系科目）実験科目",
-        "総合教育科目Ⅰ類（自然科学系科目）講義科目",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系（生物・物理・化学）",
-        "総合教育科目選択必修（Ⅰ系）Ⅰ系　自然・数理系（ＰＥＡＲＬ）",
-        "総合教育科目自然科学系列",
-      ];
+      categoryArray = fieldName.nature;
       break;
     case "pe":
-      categoryArray = ["体育"];
+      categoryArray = fieldName.pe;
+      break;
+    case "language":
+      categoryArray = fieldName.lang;
       break;
     default:
       console.error("category parameter is not specified");

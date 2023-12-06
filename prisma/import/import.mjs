@@ -16,7 +16,7 @@ async function importData() {
       data: courseSummary,
     });
 
-    console.log("Data import completed.");
+    console.log(courseSummary.length + "件のデータをインポートしました。");
   } catch (error) {
     console.error("Error importing data:", error);
   } finally {

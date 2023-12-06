@@ -2,19 +2,19 @@ import React from "react";
 import Head from "next/head";
 import Footer from "@/src/components/templates/Footer";
 import Header from "@/src/components/templates/Header";
-import Specialized from "@/src/components/templates/rakutan/specialized/Specialized";
+import Result from "@/src/components/templates/rakutan/specialized/Result";
 
-const index = () => {
+const result = () => {
   return (
     <>
       <Head>
-        <title>専門科目 楽単リスト</title>
+        <title>検索結果</title>
       </Head>
       <Header />
-      <Specialized />
+      <Result />
       <Footer />
     </>
   );
 };
 
-export default index;
+export default result;
