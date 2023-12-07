@@ -132,7 +132,7 @@ const SlideMenu: FC<{
                             } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                             href="/rakutan/specialized"
                           >
-                            専門科目（準備中）
+                            二外・専門科目
                           </Link>
                         )}
                       </Menu.Item>
