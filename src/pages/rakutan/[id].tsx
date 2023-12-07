@@ -14,13 +14,17 @@ type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
   const data = await prisma.courseSummary.findMany({
     select: {
       id: true,
     },
   });
-
-  await prisma.$disconnect();
 
   const paths = data.map((item) => {
     return {
@@ -123,8 +127,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       courseId: parseInt(params?.id as string),
     },
   });
-
-  await prisma.$disconnect();
 
   // 数値型に変換
   const avgReputation = Number(rakutan[0].avg_reputation);

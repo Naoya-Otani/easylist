@@ -29,7 +29,7 @@ const PostedReviews: React.FC<{ user: User }> = ({ user }) => {
   }
 
   let positionFromRight = 0;
-  if (data.length > 5) {
+  if (data.length < 5) {
     positionFromRight = 100 - data.length * 20;
   }
 
