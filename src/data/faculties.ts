@@ -1,5 +1,6 @@
 import * as fieldName from "./academicFieldName";
 
+// 語学科目のフィールド名と言語名の対応
 const faculties = [
   {
     id: 1,

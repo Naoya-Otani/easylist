@@ -33,5 +33,22 @@ module.exports = function ({ addBase }) {
       "-webkit-box-orient": "vertical",
       overflow: "hidden",
     },
+    "@keyframes fadeIn": {
+      "0%": { opacity: "0" },
+      "100%": { opacity: "1" },
+    },
+    ".fade-in": {
+      animation: "fadeIn 0.5s ease-in-out",
+    },
+    ".fade-in-slow": {
+      animation: "fadeIn 1.5s ease-in-out",
+    },
+    "@keyframes fadeOut": {
+      "0%": { opacity: "1" },
+      "100%": { opacity: "0" },
+    },
+    ".fade-out": {
+      animation: "fadeOut 0.5s ease-in-out",
+    },
   });
 };

@@ -1,4 +1,4 @@
-import type { Review } from "@prisma/client";
+import type { Review, Faculty } from "@prisma/client";
 
 interface User {
   id: string;
@@ -6,12 +6,18 @@ interface User {
   email?: string;
   emailVerified?: boolean;
   image?: string;
+  nickname?: string;
+  faculty?: Faculty;
+  facultyId?: number;
+  major?: Major;
+  majorId?: number;
 }
 
 interface UseUserResponse {
   user: User | null;
   isLoading: boolean;
   error: Error | undefined;
+  mutate: () => any;
 }
 
 interface UseReviewsWithUserIdResponse {
