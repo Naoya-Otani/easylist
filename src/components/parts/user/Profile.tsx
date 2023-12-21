@@ -12,6 +12,7 @@ import FacultyList from "./FacultyList";
 import { FacultyWithMajors } from "@/src/@types/faculty";
 import { Major, Faculty } from "@prisma/client";
 import MajorList from "./MajorList";
+import Tooltip from "../../atoms/Tooltip";
 
 const Profile: React.FC<{ userId: string }> = ({ userId }) => {
   const { user, isLoading, mutate, isValidating } = useUser(userId);
@@ -129,12 +130,10 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
     </div>
   );
 
-  console.log(user);
-
   return (
     <div className="w-full">
       <h2 className="text-center text-2xl font-bold mb-8">プロフィール</h2>
-      <div className="flex flex-col gap-y-2 mx-auto rounded-md border border-gray-200 p-4">
+      <div className="flex flex-col lg:max-w-lg gap-y-2 mx-auto rounded-md border border-gray-200 p-4">
         <div className="flex justify-between items-center mb-4">
           <p
             className={`text-gray-500 text-xs md:text-base ${
@@ -162,21 +161,21 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 
         {/* ニックネーム */}
         {renderProfileField(
-          <UserCircleIcon width={20} />,
+          <Tooltip text="ニックネーム" icon={<UserCircleIcon width={20} />} />,
           isEditing ? (
             <input
               type="text"
               value={nickname}
               onChange={(e) => setNickname(e.target.value)}
-              className="fade-in h-7 w-full text-sm md:text-lg px-2 py-1 rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-yellow-500 placeholder:text-end"
+              className="fade-in w-full text-sm md:text-lg px-2 py-1 rounded-lg border border-gray-200 focus:outline-none focus:ring-1 focus:ring-yellow-500 placeholder:text-end"
               placeholder={user?.nickname || "ニックネームを入力してください"}
             />
           ) : (
             <>
               {isValidating ? (
-                <span className="h-7 animate-pulse w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
+                <span className="animate-pulse w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
               ) : (
-                <span className="h-7 w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
+                <span className="w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
                   {user?.nickname}
                 </span>
               )}
@@ -186,13 +185,13 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 
         {/* 学部 */}
         {renderProfileField(
-          <BuildingOfficeIcon width={20} />,
+          <Tooltip text="学部" icon={<BuildingOfficeIcon width={20} />} />,
           isEditing ? (
             <FacultyList selected={faculty} setSelected={setFaculty} />
           ) : isValidating ? (
-            <span className="h-7 w-full animate-pulse text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
+            <span className="w-full animate-pulse text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
           ) : (
-            <span className="h-7 w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
+            <span className="w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
               {user?.faculty?.name}
             </span>
           )
@@ -200,7 +199,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 
         {/* 専攻 */}
         {renderProfileField(
-          <AcademicCapIcon width={20} />,
+          <Tooltip text="専攻" icon={<AcademicCapIcon width={20} />} />,
           isEditing ? (
             <MajorList
               facultyId={faculty.id}
@@ -208,9 +207,9 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
               setMajor={setSelectedMajor}
             />
           ) : isValidating ? (
-            <span className="h-7 w-full animate-pulse text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
+            <span className="w-full animate-pulse text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end"></span>
           ) : (
-            <span className="h-7 w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
+            <span className="w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
               {user?.major?.name}
             </span>
           )
@@ -218,7 +217,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 
         {/* email */}
         {renderProfileField(
-          <EmailIcon />,
+          <Tooltip text="メール" icon={<EmailIcon />} />,
           <span className="w-full text-sm md:text-lg px-2 py-1 rounded-md bg-gray-100 text-end">
             {user?.email}
           </span>

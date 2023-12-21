@@ -21,7 +21,6 @@ const FacultySelector = () => {
     router.push(
       `/rakutan/specialized/result?faculty=${selected.name}&lang=${secondLanguage}`
     );
-    console.log(selected.name, secondLanguage);
   };
 
   return (

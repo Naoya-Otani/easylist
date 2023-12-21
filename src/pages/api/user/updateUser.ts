@@ -11,7 +11,6 @@ export default async function updateUser(
   }
 
   const { userId, nickname, facultyId, majorId } = req.body;
-  console.log(req.body);
   if (!userId || userId === undefined) {
     return res.status(400).json({
       error: "Invalid request - userId",

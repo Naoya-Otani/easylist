@@ -27,7 +27,6 @@ export default async function searchHandler(
     const pageInt = parseInt(page as string, 10);
     const pageSize = limit ? parseInt(limit as string, 10) : 30;
     const skip = (pageInt - 1) * pageSize;
-console.log(pageInt, pageSize, skip);
     let filterQuery: string;
     let sortStandard: string;
     let filterQueryForDB: {
@@ -277,7 +276,6 @@ console.log(pageInt, pageSize, skip);
             OFFSET
                 ${skip};
       `;
-      console.log(data);
     res.status(200).json(data);
     return;
   } catch (error) {

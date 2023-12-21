@@ -13,11 +13,6 @@ const MajorList: React.FC<{
     (major) => major.facultyId === facultyId
   );
 
-  useEffect(() => {
-    console.log("filteredMajors", filteredMajors);
-    console.log("major", major.name);
-  }, [major]);
-
   return (
     <Listbox value={major} onChange={setMajor}>
       <div className="relative z-10 w-full h-7 flex">
