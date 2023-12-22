@@ -8,7 +8,7 @@ const FooterLinks: FC<{
 }> = ({ linkHeading, links, href }) => {
   return (
     <div>
-      <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+      <h2 className="relative w-fit mb-8 text-sm font-semibold text-gray-900 uppercase before:content-[''] before:absolute before:w-full before:-translate-x-1/2 before:left-1/2 before:-bottom-3 before:border-2 before:border-transparent before:border-yellow-500">
         {linkHeading}
       </h2>
       <ul className="text-gray-600 font-medium">
