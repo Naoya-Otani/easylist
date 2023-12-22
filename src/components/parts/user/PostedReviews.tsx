@@ -10,8 +10,12 @@ import StarReview from "@/src/components/parts/Reviews/StarReview";
 import ReviewMenu from "@/src/components/parts/Reviews/ReviewMenu";
 import ReviewDetail from "@/src/components/parts/Reviews/ReviewDetail";
 
-const PostedReviews: React.FC<{ user: User }> = ({ user }) => {
-  const { data, isError, isLoading } = useReviewsWithUserId(user.id);
+type Props = {
+  userId: string;
+};
+
+const PostedReviews = ({ userId }: Props) => {
+  const { data, isError, isLoading } = useReviewsWithUserId(userId);
 
   if (isLoading) {
     return <Loading />;

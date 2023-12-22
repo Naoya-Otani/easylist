@@ -34,7 +34,7 @@ const User = () => {
       <div className="outlineStyle font-notoSans flex flex-col items-center gap-y-12 md:gap-y-16">
         <h1 className="text-center text-3xl font-bold my-16">マイページ</h1>
         <Profile userId={uid} />
-        {/* <PostedReviews /> */}
+        <PostedReviews userId={uid} />
       </div>
     );
   }
