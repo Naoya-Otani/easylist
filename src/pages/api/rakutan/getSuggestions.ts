@@ -40,7 +40,6 @@ export default async function getSuggestions(
         take: 5,
       }
     );
-    console.log(suggestions);
 
     return res.status(200).json(suggestions);
   } catch (error) {

@@ -9,7 +9,7 @@ const Commerce = () => {
   return (
     <div className="outlineStyle font-notoSans">
       <div className="my-8">
-        <Heading heading="履修の組み方　経済学部" />
+        <Heading heading="履修の組み方　商学部" />
       </div>
       <div className="mb-4">
         <div className="my-4">
