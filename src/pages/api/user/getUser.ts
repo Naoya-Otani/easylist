@@ -23,6 +23,11 @@ export default async function getUser(
         id: true,
         name: true,
         email: true,
+        nickname: true,
+        faculty: true,
+        facultyId: true,
+        major: true,
+        majorId: true,
       },
     });
 
@@ -36,6 +41,11 @@ export default async function getUser(
       id: user.id,
       name: user.name || undefined,
       email: user.email || undefined,
+      nickname: user.nickname || undefined,
+      faculty: user.faculty || undefined,
+      facultyId: user.facultyId || undefined,
+      major: user.major || undefined,
+      majorId: user.majorId || undefined,
     };
 
     return res.status(200).json(responseUser);

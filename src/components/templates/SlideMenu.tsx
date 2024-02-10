@@ -350,7 +350,7 @@ const SlideMenu: FC<{
 
         <div className="min-h-[36%] flex flex-col justify-around items-start px-[68px] font-notoSans mt-6 py-6 bg-gradient-to-r from-orange-200 to-yellow-100 -z-10">
           <div className="mt-6">
-            <SearchBar />
+            <SearchBar useSuggest={false} isFullWidth={true} />
           </div>
           <div className="w-fit rounded-md shadow-lg">
             <AuthBtn />

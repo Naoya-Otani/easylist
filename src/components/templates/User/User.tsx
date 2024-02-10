@@ -11,32 +11,12 @@ import PostedReviews from "../../parts/user/PostedReviews";
 const User = () => {
   const { data: session, status } = useSession();
   const uid = session?.userId;
-  const { user, error, isLoading } = useUser(uid);
 
-  if (isLoading || status === "loading") {
+  if (status === "loading") {
     return <Loading />;
   }
 
-  if (status === "authenticated" && user) {
-    return (
-      <div className="outlineStyle font-notoSans flex flex-col items-center gap-y-12 md:gap-y-16">
-        <h1 className="text-center text-3xl font-bold my-16">マイページ</h1>
-        <Profile user={user} />
-        <PostedReviews user={user} />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <ErrorPage
-        errorCode={null}
-        errorMessage={"ユーザーを取得できませんでした。"}
-      />
-    );
-  }
-
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" || !uid) {
     return (
       <div className="flex justify-center items-center h-[70vh]">
         <Link
@@ -45,6 +25,16 @@ const User = () => {
         >
           ログインしましょう
         </Link>
+      </div>
+    );
+  }
+
+  if (status === "authenticated") {
+    return (
+      <div className="outlineStyle font-notoSans flex flex-col items-center gap-y-12 md:gap-y-16">
+        <h1 className="text-center text-3xl font-bold my-16">マイページ</h1>
+        <Profile userId={uid} />
+        <PostedReviews userId={uid} />
       </div>
     );
   }

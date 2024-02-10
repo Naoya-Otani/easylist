@@ -1,13 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { sanitize } from "isomorphic-dompurify";
+import Suggestions from "./Suggestions";
+import { SearchSuggestion } from "@/src/@types/searchSuggestions";
 
-const SearchBar = () => {
+type Props = {
+  useSuggest?: boolean;
+  isFullWidth?: boolean;
+};
+
+const SearchBar = ({ useSuggest, isFullWidth }: Props) => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<SearchSuggestion[]>([]);
 
   const handleSearch = async () => {
     await performSearch(searchQuery);
+  };
+
+  const getSuggestions = async (
+    searchQuery: string
+  ): Promise<SearchSuggestion[]> => {
+    const sanitizedQuery = sanitize(searchQuery);
+    const encodedQuery = encodeURIComponent(sanitizedQuery);
+    const url = `/api/rakutan/getSuggestions?keyword=${encodedQuery}`;
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      return response.json();
+    });
+
+    return res;
   };
 
   const performSearch = async (query: string) => {
@@ -42,6 +68,20 @@ const SearchBar = () => {
     setSearchQuery(e.target.value);
   };
 
+  useEffect(() => {
+    if (useSuggest === false) return;
+    if (isBlankString(searchQuery)) {
+      setSuggestions([]);
+      return;
+    }
+    const getSuggestionsAsync = async () => {
+      const sug = await getSuggestions(searchQuery);
+      setSuggestions(sug);
+    };
+
+    getSuggestionsAsync();
+  }, [searchQuery]);
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.nativeEvent.isComposing || e.key !== "Enter") return;
     performSearch(searchQuery);
@@ -63,9 +103,12 @@ const SearchBar = () => {
           <input
             type="text"
             placeholder="例）音楽"
-            className="px-4 py-2 w-full lg:w-[400px] rounded-b rounded-tr border-yellow-500 focus:outline-none focus:border-yellow-500 border-2  focus:ring-0 font-notoSans placeholder:font-notoSans"
+            className={`px-4 py-2 rounded-b rounded-tr border-yellow-500 focus:outline-none focus:border-yellow-500 border-2  focus:ring-0 font-notoSans placeholder:font-notoSans ${
+              isFullWidth ? "w-full" : "w-[320px] lg:w-[400px]"
+            }`}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
+            value={searchQuery}
           />
           <button
             className="absolute right-0 top-0 bottom-0"
@@ -87,6 +130,7 @@ const SearchBar = () => {
               />
             </svg>
           </button>
+          {suggestions.length > 0 && <Suggestions suggestions={suggestions} />}
         </div>
       </div>
     </div>

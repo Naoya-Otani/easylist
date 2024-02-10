@@ -5,7 +5,7 @@ import Image from "next/image";
 const TopText = () => {
   return (
     <>
-      <div className="flex items-center justify-center my-12">
+      <div className="flex items-center justify-center my-12 fade-in-slow">
         <div className="md:flex items-start lg:ml-4 font-gothicA1 hidden">
           <Link href="/">
             <img
@@ -23,7 +23,7 @@ const TopText = () => {
         </div>
       </div>
 
-      <div className="font-notoSans flex flex-col justify-around px-4">
+      <div className="font-notoSans flex flex-col justify-around px-4 fade-in-slow">
         <div className="mb-6">
           <h1 className="text-3xl md:text-4xl mb-2 font-bold text-center">
             楽に楽単を見つけよう

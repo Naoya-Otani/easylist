@@ -1,23 +1,33 @@
 import useSWR from "swr";
-import type { User } from "@/src/@types/user";
-import { UseUserResponse } from "../@types/user";
+import { Faculty, Major } from "@prisma/client";
 
-const useUser = (userId: string | undefined): UseUserResponse => {
-  const { data, error, isLoading } = useSWR<User>(
+type UserProfileProps = {
+  id: string;
+  email: string | null;
+  nickname: string | null;
+  facultyId?: number | null;
+  majorId?: number | null;
+};
+
+type UserWithFacultyMajor = UserProfileProps & {
+  faculty?: Faculty;
+  major?: Major;
+};
+
+const useUser = (userId: string | undefined) => {
+  const fetcher = (url: string): Promise<UserWithFacultyMajor> =>
+    fetch(url).then((res) => res.json());
+  const { data, error, isLoading, mutate, isValidating } = useSWR(
     userId ? `/api/user/getUser?userId=${userId}` : null,
-    async (url) => {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
-      }
-      return response.json();
-    }
+    fetcher
   );
 
   return {
-    user: data ?? null,
+    user: data,
     isLoading: isLoading,
+    isValidating: isValidating,
     error: error,
+    mutate: mutate,
   };
 };
 
