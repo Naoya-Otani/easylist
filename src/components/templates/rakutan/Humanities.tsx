@@ -5,7 +5,6 @@ import RenderRakutan from "../../parts/rakutan/RenderRakutan";
 import useInfiniteData from "@/src/hooks/useInfiniteData";
 import LoadMoreBtn from "../../parts/rakutan/LoadMoreBtn";
 import SortFilterBoard from "../../parts/rakutan/SortFilterBoard";
-import { VList } from "virtua";
 
 const Humanities: FC = () => {
   const [filter, setFilter] = useState<string>("normal");
@@ -41,11 +40,9 @@ const Humanities: FC = () => {
       <div className="lg:px-16 flex flex-col lg:flex-row lg:flex-wrap justify-between">
         {rakutans?.map((rakutan: Rakutan) => {
           return (
-            <VList count={rakutans.length}>
-              <React.Fragment key={`base_${rakutan.id}`}>
-                <RenderRakutan rakutan={rakutan} />
-              </React.Fragment>
-            </VList>
+            <React.Fragment key={`base_${rakutan.id}`}>
+              <RenderRakutan rakutan={rakutan} />
+            </React.Fragment>
           );
         })}
       </div>

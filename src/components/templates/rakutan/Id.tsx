@@ -39,7 +39,7 @@ const Id: FC<{ id: number }> = ({ id }) => {
     data: RakutanWithReviews;
     error?: any;
     isLoading: boolean;
-  } = useSWR("/api/rakutan/postRakutanById", fetcher);
+  } = useSWR(id.toString(), fetcher);
 
   if (isLoading)
     return (
