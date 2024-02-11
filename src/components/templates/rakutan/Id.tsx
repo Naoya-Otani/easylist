@@ -15,18 +15,16 @@ import Loading from "../../parts/common/Loading";
 import ReportLengthAvg from "../../parts/Reviews/ReportLengthAvg";
 import NoReviews from "../../parts/Reviews/NoReviews";
 import NoData from "../../parts/Reviews/NoData";
-import ShareSection from "../../parts/common/social/ShareSection";
 import ShareModal from "../../parts/rakutan/ShareModal";
 import ShareBtn from "../../atoms/Button/ShareBtn";
 
 const Id: FC<{ id: number }> = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const fetchOptions = {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id: id }),
   };
   const fetcher = (url: string) =>
     fetch(url, fetchOptions).then((res) => res.json());
@@ -39,7 +37,7 @@ const Id: FC<{ id: number }> = ({ id }) => {
     data: RakutanWithReviews;
     error?: any;
     isLoading: boolean;
-  } = useSWR(id.toString(), fetcher);
+  } = useSWR(`/api/rakutan/getRakutanById?id=${id}`, fetcher);
 
   if (isLoading)
     return (
