@@ -7,8 +7,9 @@ import notifyMutationError from "@/lib/notifyMutationError";
 
 const ReviewMenu: FC<{
   reviewId: number;
+  courseId: number;
   userId: string;
-}> = ({ reviewId, userId }) => {
+}> = ({ reviewId, courseId, userId }) => {
   const { data: session } = useSession();
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [isReportOpen, setIsReportOpen] = useState(false);
@@ -55,7 +56,7 @@ const ReviewMenu: FC<{
   };
 
   const { trigger, isMutating } = useSWRMutation(
-    "/api/rakutan/postRakutanById",
+    `/api/rakutan/getRakutanById?id=${courseId}`,
     deleteReview,
     {
       onError: () => {

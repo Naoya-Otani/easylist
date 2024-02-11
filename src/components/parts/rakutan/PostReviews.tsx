@@ -90,7 +90,7 @@ const PostReviews: FC<{
   };
 
   const { trigger, isMutating } = useSWRMutation(
-    "/api/rakutan/postRakutanById",
+    `/api/rakutan/getRakutanById?id=${courseId}`,
     postReview,
     {
       onSuccess: () => {
