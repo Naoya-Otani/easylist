@@ -7,6 +7,7 @@ async function notifyAuthError(metadata: any, code: string) {
     }
     const payload = {
       content: `認証エラー発生 : ${metadata.message}\n
+      Stack : ${metadata?.stack}\n
       https://next-auth.js.org/errors#${code.toLowerCase()}`,
     };
     const response = await fetch(webhookUrl, {
