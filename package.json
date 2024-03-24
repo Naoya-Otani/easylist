@@ -17,11 +17,8 @@
     "getDistinctField": "node ./prisma/import/getDistinctField.mjs"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.14",
-    "@heroicons/react": "^2.1.1",
-    "@mui/material": "^5.15.13",
+    "@heroicons/react": "^2.0.17",
     "@next-auth/prisma-adapter": "^1.0.6",
     "@prisma/client": "^5.9.1",
     "@tailwindcss/forms": "^0.5.3",
@@ -33,10 +30,8 @@
     "next-auth": "^4.22.1",
     "next-superjson": "^0.0.4",
     "nodemailer": "^6.9.3",
-    "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "simplebar-react": "^3.2.4",
     "superjson": "^1.12.3",
     "swr": "^2.2.0",
     "ts-node": "^10.9.1",
@@ -46,11 +41,10 @@
   "devDependencies": {
     "@types/gtag.js": "^0.0.12",
     "@types/nodemailer": "^6.4.8",
-    "@types/prop-types": "^15.7.11",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "prisma": "^5.9.1",
     "supabase": "^1.49.4",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.2.7"
   }
 }
