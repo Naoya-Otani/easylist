@@ -25,6 +25,9 @@ module.exports = {
         gradOrange: "#FF930F",
       },
     },
+    maxWidth: {
+      'custom': '500px', // カスタムの最大幅を定義
+    },
     fontWeight: {
       thin: "100",
       extralight: "200",
