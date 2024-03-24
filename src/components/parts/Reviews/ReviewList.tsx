@@ -20,11 +20,7 @@ const ReviewList: FC<{
             }`}
           >
             <div className="flex justify-end relative">
-              <ReviewMenu
-                reviewId={item.id}
-                userId={item.userId}
-                courseId={item.courseId}
-              />
+              <ReviewMenu reviewId={item.id} userId={item.userId} />
             </div>
             <div className="flex items-center mb-2">
               <div className="mr-2">

@@ -82,11 +82,7 @@ const PostedReviews = ({ userId }: Props) => {
                 <p className="font-semibold">{review.course.locationName}</p>
                 <p>{review.course.subjectName}</p>
               </Link>
-              <ReviewMenu
-                reviewId={review.id}
-                userId={review.userId}
-                courseId={review.courseId}
-              />
+              <ReviewMenu reviewId={review.id} userId={review.userId} />
             </div>
             <div>
               <div className="flex items-center mb-2">
