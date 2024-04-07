@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import SendBtn from "../../atoms/Button/SendBtn";
 
-// MessageInputProps として型定義
+
 interface MessageInputProps {
   inputValue: string;
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
   onSendMessage: (message: string) => void;
 }
 
-// MessageInput としてコンポーネントを定義
+
 const MessageInput: React.FC<MessageInputProps> = ({
   inputValue,
   setInputValue,
@@ -18,14 +18,14 @@ const MessageInput: React.FC<MessageInputProps> = ({
       event.preventDefault();
       if (!inputValue.trim()) return;
 
-      onSendMessage(inputValue); // 外部状態を使用してメッセージを送信
-      setInputValue(''); // 外部状態をクリア
+      onSendMessage(inputValue); 
+      setInputValue('');
     };
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault();
-        handleFormSubmit(event as unknown as React.FormEvent); // 強制的な型変換は避けたほうが良いが、ここではイベントを処理するために使用
+        handleFormSubmit(event as unknown as React.FormEvent); 
       }
     };
 

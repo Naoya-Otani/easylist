@@ -3,7 +3,7 @@ import MessageBox from "@/src/components/atoms/MassageBox";
 
 interface ChatMessage {
     type: string;
-    content: string; // 'reply_from_bot' から 'content' に変更
+    content: string; 
     date: Date;
     source: 'user' | 'bot';
 }
@@ -11,7 +11,7 @@ interface ChatMessage {
     messages: ChatMessage[];
   }
   
-  // ChatDisplay コンポーネントの更新
+
   const ChatDisplay: React.FC<ChatDisplayProps> = ({ messages }) => {
     return (
         <div className=" flex flex-col items-center justify-center h-screen pb-6">
