@@ -51,7 +51,7 @@ const ChatPage = () => {
                 {showStartScreen && (
                     <div className="flex flex-col items-center justify-center flex-1">
                         <Logo className="w-20 h-20" />  
-                        <h2 className="text-center font-semibold mr-2 text-2xl pt-6 pb-24 sm:px-10">How can I help you with class-related questions?</h2>
+                        <h2 className=" text-center font-semibold sm:w-full w-6/7 text-2xl pt-6 pb-24 sm:px-10">How can I help you with class-related questions?</h2>
                         <div className="fixed inset-x-0 bottom-0 bg-gray-50 shadow-md pb-18">
                         <MessageInput
                                 inputValue={inputValue}
@@ -73,7 +73,7 @@ const ChatPage = () => {
                                 setInputValue={setInputValue}
                                 onSendMessage={handleSendMessage}
                             />
-                            <p className="text-sm text-gray-500 flex items-center justify-center pt-3 pb-3">EASYLIST-BOT can make mistakes. Consider checking important information.</p>
+                            <p className="text-sm text-gray-500 flex items-center justify-center pt-3 pb-3 sm:pr-0 sm:pl-0 ">EASYLIST-BOT can make mistakes. Consider checking important information.</p>
                         </div>
                     </>
                 )}

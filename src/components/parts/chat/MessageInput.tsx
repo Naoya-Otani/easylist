@@ -30,8 +30,8 @@ const MessageInput: React.FC<MessageInputProps> = ({
     };
 
     return (
-      <form onSubmit={handleFormSubmit} className="bg-white rounded-lg shadow flex flex-col space-y-2 w-3/5 mx-auto ">
-        <div className="flex items-center border border-gray-400 rounded-md transition-colors ">
+      <form onSubmit={handleFormSubmit} className="bg-white rounded-lg shadow flex flex-col space-y-2 w-5/6 sm:w-3/5 mx-auto ">
+        <div className="flex items-center border border-gray-400 rounded-md transition-colors relative">
           <input
             type="text"
             className="flex-1 rounded-md focus:outline-none border-transparent"
