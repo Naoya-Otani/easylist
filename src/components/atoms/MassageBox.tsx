@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '@/src/components/atoms/icon/Logo';
 import UserIcon from '@/src/components/atoms/icon/Chatuser'
+import TextStreamer from '@/src/components/parts/chat/TextStreamer';
 interface MessageBoxProps {
   position: 'left' | 'right';
   text: string;
@@ -23,7 +24,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ position, text, source }) => {
           </div>
         )}
         <div className={`mt-1 p-3 bg-gray-50 rounded-lg ${source === 'bot' ? 'rounded-tl-none' : 'rounded-tr-none'}`}>
-          <p className="text-sm">{text}</p> 
+          <TextStreamer text={text} /> 
         </div>
       </div>
     );

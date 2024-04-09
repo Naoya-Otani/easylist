@@ -40,12 +40,13 @@ const useWebSocket = (url: string) => {
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify(message));
 
+      // 送信したメッセージをmessagesに追加
       setMessages((prev) => [
         ...prev,
         {
           ...message,
           date: new Date(),
-          source: 'user',
+          source: 'user', // 送信者を'user'として設定
         },
       ]);
     }
