@@ -1,31 +1,41 @@
-// TextStreamer.tsx
 import React, { useState, useEffect } from 'react';
 
 interface TextStreamerProps {
   text: string;
+  loop?: boolean; 
 }
 
-const TextStreamer: React.FC<TextStreamerProps> = ({ text }) => {
+const TextStreamer: React.FC<TextStreamerProps> = ({ text, loop = false }) => {
   const [displayedText, setDisplayedText] = useState('');
+  const [animationIndex, setAnimationIndex] = useState(0); 
 
   useEffect(() => {
-    setDisplayedText('');
+   
+    if (text.length === 0 || (!loop && animationIndex > 0)) return;
 
-    if (text.length === 0) return;
-
-    const timers: number[] = [];
+    setDisplayedText(''); 
 
     
-    text.split('').forEach((char, index) => {
-      const timer = window.setTimeout(() => {
-        setDisplayedText((prev) => prev + char);
-      }, index * 50); 
+    const delay = loop ? 100 : 50; 
 
-      timers.push(timer);
+    const timers: number[] = text.split('').map((char, index) => {
+      return window.setTimeout(() => {
+        setDisplayedText((prev) => prev + char);
+      
+        if (index === text.length - 1) {
+          if (loop) {
+            
+            setAnimationIndex((prev) => prev + 1);
+          } else {
+            
+          }
+        }
+      }, index * delay);
     });
 
+   
     return () => timers.forEach(timer => clearTimeout(timer));
-  }, [text]); 
+  }, [text, loop, animationIndex]);
 
   return <p className="text-sm">{displayedText}</p>;
 };

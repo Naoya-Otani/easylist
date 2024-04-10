@@ -6,15 +6,19 @@ interface ChatMessage {
     content: string; 
     date: Date;
     source: 'user' | 'bot';
-}
+  }
+  
   export interface ChatDisplayProps {
     messages: ChatMessage[];
   }
   
   const ChatDisplay: React.FC<ChatDisplayProps> = ({ messages }) => {
+  
+    const isWaitingForBotResponse = messages.length > 0 && messages[messages.length - 1].source === 'user';
+  
     return (
-        <div className=" flex flex-col items-center justify-center h-screen pb-6">
-            <div id="message-list" className=" overflow-auto flex-1 w-3/5 p-4 rounded-lg bg-gray-50">
+        <div className="flex flex-col items-center justify-center h-screen pb-6">
+            <div id="message-list" className="overflow-auto flex-1 w-3/5 p-4 rounded-lg bg-gray-50">
                 {messages.map((msg, index) => (
                     <MessageBox
                         key={index}
@@ -23,17 +27,19 @@ interface ChatMessage {
                         source={msg.source}
                     />
                 ))}
+                
+                {isWaitingForBotResponse && (
+                  <MessageBox
+                      key="loading"
+                      position="left"
+                      text="Loading using vector search.........."
+                      source="bot"
+                      loop={true} 
+                  />
+                )}
             </div>
         </div>
     );
-}
-
-export default ChatDisplay;
+  }
   
-
-  
-
-
-
-
-  
+  export default ChatDisplay;
