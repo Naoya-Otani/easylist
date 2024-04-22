@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '@/src/components/atoms/icon/Logo';
-import UserIcon from '@/src/components/atoms/icon/Chatuser'
+import UserIcon from '@/src/components/atoms/icon/Chatuser';
 import TextStreamer from '@/src/components/parts/chat/TextStreamer';
 
 interface MessageBoxProps {
@@ -10,9 +10,9 @@ interface MessageBoxProps {
   loop?: boolean;
 }
 
-
 const MessageBox: React.FC<MessageBoxProps> = ({ position, text, source, loop = false }) => {
-  console.log('MessageBox text:', text); 
+ 
+
   return (
     <div className={`flex flex-col ${position === 'left' ? 'items-start' : 'items-end'} mb-2`}>
       {source === 'bot' ? (
@@ -22,12 +22,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ position, text, source, loop = 
         </div>
       ) : (
         <div className="flex items-center">
-          <UserIcon /> 
-          <span className="ml-2 font-semibold">Student</span> 
+          <UserIcon />
+          <span className="ml-2 font-semibold">Student</span>
         </div>
       )}
       <div className={`mt-1 p-3 bg-gray-50 rounded-lg ${source === 'bot' ? 'rounded-tl-none' : 'rounded-tr-none'}`}>
-        
         <TextStreamer text={text} loop={loop} />
       </div>
     </div>
