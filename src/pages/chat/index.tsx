@@ -9,7 +9,7 @@ import useWebSocket from '@/src/hooks/useWebSocket';
 const DynamicChatDisplay = dynamic(() => import('@/src/components/parts/chat/ChatDisplay'), {
     ssr: false,
 });
-//const WEBSOCKET_URL ="ws://127.0.0.1:8000/ws_test"
+
 const ChatPage = () => {
     const [inputValue, setInputValue] = useState('');
     const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL ? process.env.NEXT_PUBLIC_WEBSOCKET_URL : "";
