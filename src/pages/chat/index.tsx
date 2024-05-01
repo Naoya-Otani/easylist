@@ -9,21 +9,20 @@ import useWebSocket from '@/src/hooks/useWebSocket';
 const DynamicChatDisplay = dynamic(() => import('@/src/components/parts/chat/ChatDisplay'), {
     ssr: false,
 });
+interface Message {
+    id: number,
+    content: string;
+    type: 'text';
+    source: 'user' | 'bot';
+    date: Date;
+}
 
 const ChatPage = () => {
     const [inputValue, setInputValue] = useState('');
-    const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL ? process.env.NEXT_PUBLIC_WEBSOCKET_URL : "";
-    const { messages: rawMessages, sendMessage: sendWebSocketMessage } = useWebSocket(WEBSOCKET_URL);
-
-    const [showStartScreen, setShowStartScreen] = useState(true);
- 
-    const messages = rawMessages.map((message) => ({
-    ...message,
-    date: new Date(),
-    source: message.source || 'bot', 
-}));
-
-
+    const [messages, setMessages] = useState<Message[]>([]);
+    const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL ? process.env.NEXT_PUBLIC_WEBSOCKET_URL :"";
+    const { sendMessage: sendWebSocketMessage } = useWebSocket(WEBSOCKET_URL);
+    const [showStartScreen, setShowStartScreen] = useState<boolean>(true);
     const handleSendMessage = async () => {
         setShowStartScreen(false);
         if (!inputValue.trim()) {
@@ -31,18 +30,29 @@ const ChatPage = () => {
             return;
         }
 
+        const message: Message = {
+            id: Date.now(),
+            content: inputValue,
+            type: 'text',
+            source: 'user',
+            date: new Date(),
+        };
+
         sendWebSocketMessage({
+            id: Date.now(),
+            date: new Date(),
             content: inputValue,
             type: 'text',
             source: 'user',
         });
 
+        setMessages(prevMessages => [...prevMessages, message]);
         setInputValue('');
     };
 
     return (
         <div className="flex flex-col h-screen">
-            <div className="fixed top-0 w-full z-10 bg-gray-50  ">
+            <div className="fixed top-0 w-full z-10 bg-gray-50">
                 <Header showSearchBar={false} />
             </div>
             <div className="flex flex-col flex-1 pt-20 bg-gray-50 pb-16">
