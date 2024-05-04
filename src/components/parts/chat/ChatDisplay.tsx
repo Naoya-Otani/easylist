@@ -10,9 +10,10 @@ interface ChatMessage {
   
   export interface ChatDisplayProps {
     messages: ChatMessage[];
+    isStreaming: boolean;
   }
   
-  const ChatDisplay: React.FC<ChatDisplayProps> = ({ messages }) => {
+  const ChatDisplay: React.FC<ChatDisplayProps> = ({ messages , isStreaming}) => {
   
     const isWaitingForBotResponse = messages.length > 0 && messages[messages.length - 1].source === 'user';
   
@@ -26,7 +27,8 @@ interface ChatMessage {
                         position="left" 
                         text={msg.content}
                         source={msg.source}
-                        loop={false} 
+                        loop={false}
+                        isStreaming={isStreaming} 
                         />
                       ))}
           

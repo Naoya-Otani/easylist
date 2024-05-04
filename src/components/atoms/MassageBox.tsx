@@ -10,28 +10,27 @@ interface MessageBoxProps {
   text: string;
   source: 'user' | 'bot';
   loop?: boolean;
+  isStreaming:boolean;
 }
 
 
-const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loop = false }) => {
+const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loop = false,isStreaming }) => {
   const [message, setMessage] = useState<string | null>(null);
   const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL ? process.env.NEXT_PUBLIC_WEBSOCKET_URL : "";
   const { messages } = useWebSocket(WEBSOCKET_URL);
   const [loading, setLoading] = useState(true);
+  const [donotcreate, setDonotCreate] = useState(false);
 
   useEffect(() => {
-    console.log("All messages at useEffect:", messages);
-    
     let bufferedMessage = ''; 
   
     for (const msg of messages) {
       if (msg.id === id && msg.source === 'bot') {
-        console.log("Matching message found:", msg);
+        
         const newContent = msg.content;
         bufferedMessage += newContent;
       }
     }
-  
 
     if (bufferedMessage.length > 0) {
       console.log("Buffered message:", bufferedMessage);
@@ -40,7 +39,12 @@ const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loo
     } else {
       console.log("No matching message found for ID:", id);
     }
-  }, [messages, id]);
+
+    if (isStreaming) {
+      setDonotCreate(true);
+    }
+  }, [messages, id, isStreaming]);
+
   
 
   return (
@@ -52,14 +56,17 @@ const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loo
       <div className={`mt-1 p-3 bg-gray-50 rounded-lg ${source === 'user' ? 'rounded-tr-none' : 'rounded-tl-none'}`}>
         <TextStreamer text={text} loop={loop} />
       </div>
-      <div className="flex flex-col ">
-        <div className="flex items-center mt-6">
+      <div className="flex flex-col mt-6">
+        <div className="flex items-center">
           <Logo className="w-6 h-6" />
           <span className="ml-2 font-semibold">EASYLIST-BOT</span>
         </div>
         <div className={`p-3 bg-gray-50 rounded-lg ${position === 'left' ? 'rounded-tr-none' : 'rounded-tl-none'}`}>
-        {loading && <TextStreamer text={"Loading using vector search......."} loop={true} />}
-        {message &&<p className="text-sm">{message}</p> }
+          {loading ? (
+            <TextStreamer text="Loading using vector search......." loop={true} />
+          ) : (
+            <p className="text-sm">{message}</p>
+          )}
         </div>
       </div>
     </div>
