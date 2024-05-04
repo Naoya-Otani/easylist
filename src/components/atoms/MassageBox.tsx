@@ -14,7 +14,7 @@ interface MessageBoxProps {
 }
 
 
-const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loop = false,isStreaming }) => {
+const MessageBox: React.FC<MessageBoxProps> = ({ id, position, text, source, loop = false, isStreaming}) => {
   const [message, setMessage] = useState<string | null>(null);
   const WEBSOCKET_URL = process.env.NEXT_PUBLIC_WEBSOCKET_URL ? process.env.NEXT_PUBLIC_WEBSOCKET_URL : "";
   const { messages } = useWebSocket(WEBSOCKET_URL);
