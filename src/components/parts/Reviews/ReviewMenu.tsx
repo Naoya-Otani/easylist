@@ -7,9 +7,8 @@ import notifyMutationError from "@/lib/notifyMutationError";
 
 const ReviewMenu: FC<{
   reviewId: number;
-  courseId: number;
   userId: string;
-}> = ({ reviewId, courseId, userId }) => {
+}> = ({ reviewId, userId }) => {
   const { data: session } = useSession();
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [isReportOpen, setIsReportOpen] = useState(false);
@@ -49,20 +48,18 @@ const ReviewMenu: FC<{
         notifyMutationError(response);
         throw new Error("レビューの削除にエラーが発生しました");
       }
+      setIsDeleteOpen(true);
     } catch (error) {
       throw new Error("レビューの削除中にエラーが発生しました");
     }
   };
 
   const { trigger, isMutating } = useSWRMutation(
-    `/api/rakutan/getRakutanById?id=${courseId}`,
+    "/api/rakutan/postRakutanById",
     deleteReview,
     {
       onError: () => {
         throw new Error("レビューの削除中にエラーが発生しました");
-      },
-      onSuccess: () => {
-        setIsDeleteOpen(true);
       },
     }
   );
@@ -164,6 +161,20 @@ const ReviewMenu: FC<{
           </Menu.Items>
         </Transition>
       </Menu>
+      <DoneModal
+        isOpen={isDeleteOpen}
+        setIsOpen={setIsDeleteOpen}
+        title="レビューを削除しました！"
+        body="レビューを削除しました。"
+        status="deleted"
+      />
+      <DoneModal
+        isOpen={isReportOpen}
+        setIsOpen={setIsReportOpen}
+        title="レビューを報告しました！"
+        body="報告ありがとうございます。管理者がレビューをチェックします。"
+        status="reported"
+      />
       {isMutating && (
         <div className="fixed inset-0 overflow-hidden flex justify-center items-center bg-white opacity-50">
           <div className="flex flex-col items-center">
@@ -197,20 +208,6 @@ const ReviewMenu: FC<{
           </div>
         </div>
       )}
-      <DoneModal
-        isOpen={isDeleteOpen}
-        setIsOpen={setIsDeleteOpen}
-        title="レビューを削除しました！"
-        body="レビューを削除しました。"
-        status="deleted"
-      />
-      <DoneModal
-        isOpen={isReportOpen}
-        setIsOpen={setIsReportOpen}
-        title="レビューを報告しました！"
-        body="報告ありがとうございます。管理者がレビューをチェックします。"
-        status="reported"
-      />
     </div>
   );
 };
