@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "typeRoots": ["src/@types"],
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "typeRoots": [
+      "src/@types"
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -17,15 +23,25 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "jsonTriming/triming.js",
-    "prisma/import/extract.mjs"
+    "prisma/import/extract.mjs",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
