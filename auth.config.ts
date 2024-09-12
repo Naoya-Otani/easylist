@@ -10,14 +10,6 @@ const googleClientId = process.env.GOOGLE_CLIENT_ID;
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 const authSecret = process.env.AUTH_SECRET;
 
-if (!googleClientId || !googleClientSecret) {
-	throw new Error("Missing Google OAuth credentials");
-}
-
-if (!authSecret) {
-	throw new Error("Missing AUTH_SECRET environment variable");
-}
-
 declare module "next-auth" {
 	interface Session {
 		userId: string;
@@ -33,7 +25,7 @@ const authConfig: NextAuthConfig = {
 		}),
 	],
 	callbacks: {
-		async signIn({ user, account, profile }) {
+		async signIn() {
 			// Check if user is allowed to sign in
 			return true;
 		},
@@ -53,7 +45,7 @@ const authConfig: NextAuthConfig = {
 	logger: {
 		error(error) {
 			console.error(error.message);
-			notifyAuthError(JSON.stringify(error), "");
+			notifyAuthError(JSON.stringify(error), "wip");
 		},
 		warn(code) {
 			console.warn(code);
