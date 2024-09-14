@@ -8,10 +8,13 @@
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"noUnusedImports": "error"
+				"noUndeclaredVariables": "error",
+				"noUnusedVariables": "error",
+				"useHookAtTopLevel": "error",
+				"useExhaustiveDependencies": "warn"
 			}
 		},
-		"ignore": ["node_modules"]
+		"ignore": ["node_modules", ".next"]
 	},
 	"formatter": {
 		"enabled": true
