@@ -1,6 +1,11 @@
 import type { ReviewsWithCourse } from "@/src/@types/rakutan";
-import type { UseReviewsWithUserIdResponse } from "@/src/@types/user";
 import useSWR from "swr";
+
+interface UseReviewsWithUserIdResponse {
+	data: ReviewsWithCourse[] | null;
+	isLoading: boolean;
+	isError: boolean;
+}
 
 const fetcher = async (url: string): Promise<ReviewsWithCourse[]> => {
 	const response = await fetch(url);
