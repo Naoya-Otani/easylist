@@ -1,5 +1,5 @@
-import { Faculty, Major } from "@prisma/client";
+import type { Faculty, Major } from "@prisma/client";
 
 export type FacultyWithMajors = Faculty & {
-  majors: Major[];
+	majors: Major[];
 };
