@@ -2,7 +2,7 @@ name: pr-agent
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened]
   issue_comment:
     types: [created, edited]
 
@@ -17,10 +17,11 @@ jobs:
     if: ${{ github.event.sender.type != 'Bot' }}
     steps:
       - id: pr-agent
-        uses: Codium-ai/pr-agent@main
+        uses: Codium-ai/pr-agent@v0.24
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL_NAME: "gpt-4o-mini"
           github_action.auto_describe: true
           github_action.auto_review:   true
           github_action.auto_improve:  true
