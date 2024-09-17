@@ -17,7 +17,7 @@ const fetcher = async (url: string): Promise<ReviewsWithCourse[]> => {
 
 const useReviewsWithUserId = (userId: string): UseReviewsWithUserIdResponse => {
 	const { data, error, isLoading } = useSWR<ReviewsWithCourse[]>(
-		`/api/user/getReviewsWithUserId?userId=${userId}`,
+		`/api/review/getByUserId?userId=${userId}`,
 		fetcher,
 	);
 

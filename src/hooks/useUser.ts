@@ -18,7 +18,7 @@ const useUser = (userId: string | undefined) => {
 	const fetcher = (url: string): Promise<UserWithFacultyMajor> =>
 		fetch(url).then((res) => res.json());
 	const { data, error, isLoading, mutate, isValidating } = useSWR(
-		userId ? `/api/user/getUser?userId=${userId}` : null,
+		userId ? `/api/user/get?userId=${userId}` : null,
 		fetcher,
 	);
 

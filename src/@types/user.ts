@@ -1,6 +1,6 @@
-import type { Faculty, Review } from "@prisma/client";
+import type { Faculty, Major } from "@prisma/client";
 
-interface User {
+export interface User {
 	id: string;
 	name?: string;
 	email?: string;

@@ -40,7 +40,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 
 	if (!user) return <></>;
 
-	const updateUserInfo = async () => {
+	const updateInfo = async () => {
 		const data = {
 			nickname,
 			facultyId: faculty.id,
@@ -48,7 +48,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 			userId,
 		};
 		try {
-			const res = await fetch("/api/user/updateUser", {
+			const res = await fetch("/api/user/update", {
 				method: "PUT",
 				body: JSON.stringify(data),
 				headers: {
@@ -60,7 +60,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 				throw new Error(`API error: ${res.status} - ${res.statusText}`);
 			}
 		} catch (error) {
-			console.error("updateUserInfo error:", error);
+			console.error("updateInfo error:", error);
 			throw new Error("エラーが発生しました");
 		}
 	};
@@ -87,7 +87,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 			alert("専攻を選択してください");
 			return;
 		}
-		await updateUserInfo();
+		await updateInfo();
 		mutate(
 			{
 				id: userId,

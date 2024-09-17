@@ -19,11 +19,12 @@ const ReviewMenu: FC<{
 	const reportHandler = async () => {
 		if (!isMatch) {
 			try {
-				const response = await fetch("/api/reviews/report", {
+				const response = await fetch("/api/review/report", {
 					method: "POST",
 					body: JSON.stringify({ reviewId }),
 					headers: {
 						"Content-Type": "application/json",
+						Sender: userId,
 					},
 				});
 				if (response.ok) {
@@ -39,7 +40,7 @@ const ReviewMenu: FC<{
 
 	const deleteReview = async () => {
 		try {
-			const response = await fetch("/api/reviews/delete", {
+			const response = await fetch("/api/review/delete", {
 				method: "POST",
 				body: JSON.stringify({ reviewId }),
 				headers: {
@@ -51,7 +52,7 @@ const ReviewMenu: FC<{
 				throw new Error("レビューの削除にエラーが発生しました");
 			}
 			setIsDeleteOpen(true);
-		} catch (error) {
+		} catch (_) {
 			throw new Error("レビューの削除中にエラーが発生しました");
 		}
 	};
@@ -79,6 +80,7 @@ const ReviewMenu: FC<{
 							stroke="currentColor"
 							className="w-5 h-5 mr-2"
 						>
+							<title>メニュー</title>
 							<path
 								strokeLinecap="round"
 								strokeLinejoin="round"
@@ -102,6 +104,7 @@ const ReviewMenu: FC<{
 								<Menu.Item>
 									{({ active }) => (
 										<button
+											type="button"
 											className={`${
 												active ? "bg-yellow-500 text-white" : "text-gray-800"
 											} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
@@ -115,6 +118,7 @@ const ReviewMenu: FC<{
 												stroke="currentColor"
 												className="w-5 h-5 mr-2"
 											>
+												<title>報告ボタン</title>
 												<path
 													strokeLinecap="round"
 													strokeLinejoin="round"
@@ -132,6 +136,7 @@ const ReviewMenu: FC<{
 								<Menu.Item>
 									{({ active }) => (
 										<button
+											type="button"
 											onClick={() => {
 												trigger();
 											}}
@@ -148,6 +153,7 @@ const ReviewMenu: FC<{
 												stroke="currentColor"
 												className="w-5 h-5 mr-2"
 											>
+												<title>削除ボタン</title>
 												<path
 													strokeLinecap="round"
 													strokeLinejoin="round"
