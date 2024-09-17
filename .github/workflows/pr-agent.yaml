@@ -21,7 +21,7 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MODEL_NAME: "gpt-4o-mini-2024-07-18"
+          CONFIG.MODEL: "gpt-4o-mini-2024-07-18"
           github_action.auto_describe: true
           github_action.auto_review:   true
           github_action.auto_improve:  true
