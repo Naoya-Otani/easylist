@@ -12,6 +12,9 @@
 				"noUnusedVariables": "error",
 				"useHookAtTopLevel": "error",
 				"useExhaustiveDependencies": "warn"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "warn"
 			}
 		},
 		"ignore": ["node_modules", ".next", "*.mjs"]

@@ -24,7 +24,7 @@ export async function POST(req: Request) {
 
 		return NextResponse.json(
 			{ message: "レビューが作成されました" },
-			{ status: 200 },
+			{ status: 201 },
 		);
 	} catch (error) {
 		return NextResponse.json(error, { status: 500 });

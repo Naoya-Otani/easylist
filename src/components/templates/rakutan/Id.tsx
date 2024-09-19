@@ -42,7 +42,7 @@ const Id: FC<{ id: string }> = ({ id }) => {
 		data: RakutanWithReviews;
 		error?: unknown;
 		isLoading: boolean;
-	} = useSWR(`/api/rakutan/getRakutanById?id=${id}`, fetcher);
+	} = useSWR(`/api/rakutan/getById?id=${id}`, fetcher);
 
 	if (isLoading)
 		return (

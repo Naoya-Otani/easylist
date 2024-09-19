@@ -19,7 +19,7 @@ const Result = ({ faculty, lang }: { faculty: string; lang: string }) => {
 	const limit = 20;
 	const getKey = (pageIndex: number, previousPageData: Rakutan[] | null) => {
 		if (previousPageData && !previousPageData.length) return null;
-		return `/api/rakutan/specialized/search?limit=${limit}&faculty=${faculty}&lang=${lang}&reviews=${sort}&filter=${filter}&page=${
+		return `/api/rakutan/search/specialized?limit=${limit}&faculty=${faculty}&lang=${lang}&reviews=${sort}&filter=${filter}&page=${
 			pageIndex + 1
 		}`;
 	};

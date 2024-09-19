@@ -26,7 +26,7 @@ const SearchBar = ({ useSuggest, isFullWidth }: Props) => {
 	): Promise<SearchSuggestion[]> => {
 		const sanitizedQuery = sanitize(searchQuery);
 		const encodedQuery = encodeURIComponent(sanitizedQuery);
-		const url = `/api/rakutan/getSuggestions?keyword=${encodedQuery}`;
+		const url = `/api/rakutan/search/suggest?keyword=${encodedQuery}`;
 		const res = await fetch(url, {
 			method: "GET",
 			headers: {
@@ -42,23 +42,12 @@ const SearchBar = ({ useSuggest, isFullWidth }: Props) => {
 	const performSearch = async (query: string) => {
 		const sanitizedQuery = sanitize(query);
 		const encodedQuery = encodeURIComponent(sanitizedQuery);
-		const url = `/api/rakutan/search?&reviews=avg&filter=normal&query=${encodedQuery}`;
-
 		if (isBlankString(searchQuery)) {
 			return;
 		}
 
 		try {
-			const response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ query }),
-			});
-			const data = await response.json();
-			setSearchQuery(data);
-			router.push(`/rakutan/result?q=${encodedQuery}`);
+			router.push(`/rakutan/search/result?keyword=${encodedQuery}`);
 		} catch (error) {
 			console.error(error);
 		}
