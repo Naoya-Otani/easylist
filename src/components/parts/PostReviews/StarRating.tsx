@@ -17,9 +17,9 @@ const StarRating = ({
 	};
 	return (
 		<div className="flex">
-			{[...Array(totalStars)].map((n, i) => (
+			{[...Array(totalStars)].map((_, i) => (
 				<Star
-					key={n}
+					key={`${i}`}
 					selected={selectedStars > i}
 					onSelect={() => handleStarSelected(i + 1)}
 				/>

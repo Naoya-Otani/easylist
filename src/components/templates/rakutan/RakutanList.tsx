@@ -15,7 +15,10 @@ type RakutanListProps = {
 
 const MemoizedRenderRakutan = React.memo(RenderRakutan);
 
-const RakutanList: FC<RakutanListProps> = ({ category, title }) => {
+const RakutanList: React.ComponentType<RakutanListProps> = ({
+	category,
+	title,
+}) => {
 	const [filter, setFilter] = useState<string>("normal");
 	const [sort, setSort] = useState<string>("avg");
 	const limit = 20;
@@ -28,13 +31,13 @@ const RakutanList: FC<RakutanListProps> = ({ category, title }) => {
 
 		// オンライン授業のみはパラメーターが異なる
 		if (category === "online") {
-			const url = `/api/rakutan/getRakutan?limit=${limit}&page=${
+			const url = `/api/rakutan/get?limit=${limit}&page=${
 				pageIndex + 1
 			}&category=all&reviews=${sort}&filter=online`;
 			return url;
 		}
 
-		const url = `/api/rakutan/getRakutan?limit=${limit}&page=${
+		const url = `/api/rakutan/get?limit=${limit}&page=${
 			pageIndex + 1
 		}&category=${category}&reviews=${sort}&filter=${filter}`;
 

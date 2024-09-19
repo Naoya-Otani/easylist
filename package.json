@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"find-deadcode": "node ts-prune.config.mjs",
-		"postinstall": "prisma generate",
+		"postinstall": "prisma generate && prisma generate --sql",
 		"prismaImport": "./node_modules/.bin/ts-node-esm prisma/import/importCourses.ts",
 		"extract": "node ./prisma/import/extract.mjs",
 		"import": "node ./prisma/import/import.mjs",
@@ -27,13 +27,11 @@
 		"isomorphic-dompurify": "^1.7.0",
 		"next": "14.2",
 		"next-auth": "^5.0.0-beta.20",
-		"next-superjson": "^0.0.4",
 		"nodemailer": "^6.9.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"superjson": "^1.12.3",
 		"swr": "^2.2.0",
-		"virtua": "^0.23.3"
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
