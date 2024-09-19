@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"find-deadcode": "node ts-prune.config.mjs",
-		"postinstall": "prisma generate",
+		"postinstall": "prisma generate && prisma generate --sql",
 		"prismaImport": "./node_modules/.bin/ts-node-esm prisma/import/importCourses.ts",
 		"extract": "node ./prisma/import/extract.mjs",
 		"import": "node ./prisma/import/import.mjs",
