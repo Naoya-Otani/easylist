@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 			});
 		});
 
-		track("review_created");
+		await track("review_created");
 
 		return NextResponse.json(
 			{ message: "レビューが作成されました" },
