@@ -2,6 +2,7 @@ import notifyAuthError from "@/lib/notifyAuthError";
 import notifyNewUser from "@/lib/notifyNewUser";
 import { prisma } from "@/lib/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
+import { track } from "@vercel/analytics/react";
 import NextAuth from "next-auth";
 import type { NextAuthConfig } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
@@ -39,6 +40,7 @@ const authConfig: NextAuthConfig = {
 	secret: authSecret,
 	events: {
 		async createUser({ user }) {
+			track("user_created");
 			await notifyNewUser(user);
 		},
 	},
