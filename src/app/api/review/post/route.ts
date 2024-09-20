@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { track } from "@vercel/analytics/server";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -21,6 +22,8 @@ export async function POST(req: Request) {
 				},
 			});
 		});
+
+		track("review_created");
 
 		return NextResponse.json(
 			{ message: "レビューが作成されました" },

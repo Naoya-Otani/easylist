@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { auth } from "@/auth.config";
 import Footer from "@/src/components/templates/Footer";
 import Header from "@/src/components/templates/Header";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Gothic_A1, Noto_Sans_JP } from "next/font/google";
 import type React from "react";
@@ -42,6 +43,7 @@ export default async function RootLayout({
 						<Footer />
 					</NextAuthProvider>
 				</main>
+				<Analytics />
 			</body>
 		</html>
 	);
