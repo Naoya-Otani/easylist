@@ -9,7 +9,11 @@ const Button = () => {
 				<button
 					type="button"
 					className="flex justify-center items-center rounded-md px-4 py-2 text-sm duration-300 bg-white hover:bg-yellow-100"
-					onClick={() => signIn()}
+					onClick={() =>
+						signIn("google", {
+							callbackUrl: `${window.location.href}`,
+						})
+					}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

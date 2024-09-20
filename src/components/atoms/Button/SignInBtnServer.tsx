@@ -6,9 +6,7 @@ const SignInBtnServer = async () => {
 		<form
 			action={async () => {
 				"use server";
-				await signIn("google", {
-					redirectTo: process.env.NEXT_PUBLIC_BASE_URL,
-				});
+				await signIn("google");
 			}}
 		>
 			<button
