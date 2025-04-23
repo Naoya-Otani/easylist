@@ -11,23 +11,22 @@ datasource db {
 
 model CourseSummary {
   id                Int      @id @default(autoincrement())
-  campusName        String   @map(name: "campus_name")
-  academicFieldName String   @map(name: "academic_field_name")
-  season            String   @map(name: "season")
-  subjectName       String   @map(name: "subject_name")
-  dayOfWeekPeriod   String   @map(name: "day_of_week_period")
-  locationName      String   @map(name: "location_name")
-  lessonModeName    String   @map(name: "lesson_mode")
-  timetableYear     String   @map(name: "timetable_year")
-  faculties         String[] @map(name: "faculty")
-  entryNumber       String   @unique @map(name: "entry_number")
-  syllabusDetailUrl String   @map(name: "syllabus_detail_url")
+  subjectName       String   @map("subject_name")
+  dayOfWeekPeriod   String   @map("day_of_week_period")
+  locationName      String   @map("location_name")
+  lessonModeName    String   @map("lesson_mode")
+  timetableYear     String   @map("timetable_year")
+  syllabusDetailUrl String   @map("syllabus_detail_url")
+  academicFieldName String   @map("academic_field_name")
+  campusName        String   @map("campus_name")
+  entryNumber       String   @unique @map("entry_number")
+  faculties         String[] @map("faculty")
+  season            String   @map("season")
   reviews           Review[]
 }
 
 model Review {
   id                Int           @id @default(autoincrement())
-  course            CourseSummary @relation(fields: [courseId], references: [id])
   courseId          Int
   attendance        Boolean       @default(false)
   hasReport         Boolean       @default(false)
@@ -36,9 +35,10 @@ model Review {
   allowedCheatsheet Boolean       @default(false)
   reputation        Int           @default(0)
   detail            String?
-  createdAt         DateTime      @default(dbgenerated())
+  createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
   userId            String
+  course            CourseSummary @relation(fields: [courseId], references: [id])
   user              User          @relation(fields: [userId], references: [id])
 }
 
@@ -48,17 +48,16 @@ model Account {
   type               String
   provider           String
   providerAccountId  String
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
+  refresh_token      String?
+  access_token       String?
   expires_at         Int?
   token_type         String?
   scope              String?
-  id_token           String? @db.Text
+  id_token           String?
   session_state      String?
   oauth_token_secret String?
   oauth_token        String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -74,18 +73,20 @@ model Session {
 model User {
   id            String          @id @default(cuid())
   name          String?
-  nickname      String?
   email         String?         @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
-  reviews       Review[]
-  circleCreator CircleCreator[]
-  faculty       Faculty?        @relation(fields: [facultyId], references: [id])
   facultyId     Int?
-  major         Major?          @relation(fields: [majorId], references: [id])
+  nickname      String?
   majorId       Int?
+  accounts      Account[]
+  ChatRoom      ChatRoom[]
+  circleCreator CircleCreator[]
+  Prompt        Prompt[]
+  reviews       Review[]
+  sessions      Session[]
+  faculty       Faculty?        @relation(fields: [facultyId], references: [id])
+  major         Major?          @relation(fields: [majorId], references: [id])
 }
 
 model VerificationToken {
@@ -102,68 +103,68 @@ model Contact {
   email     String
   subject   String
   message   String
-  createdAt DateTime @default(dbgenerated())
+  createdAt DateTime
 }
 
 model Circle {
   id                Int               @id @default(autoincrement())
-  circleCreator     CircleCreator[]
-  createdAt         DateTime          @default(dbgenerated())
+  createdAt         DateTime
   updatedAt         DateTime          @updatedAt
   circleName        String
-  category          CircleCategory[]
-  tags              Tag[]
   description       String
   location          String
   memberCount       Int
   contactInfo       String?
-  recruitmentStatus Boolean           @default(false) @db.Boolean
+  recruitmentStatus Boolean           @default(false)
   establishedAt     DateTime
-  isAuthorized      Boolean           @default(false) @db.Boolean
+  isAuthorized      Boolean           @default(false)
   initialCost       Int
   membershipFee     Int
   schedule          String
-  socialMediaLinks  SocialMediaLink[]
   websiteURL        String?
+  category          CircleCategory[]
+  circleCreator     CircleCreator[]
+  socialMediaLinks  SocialMediaLink[]
+  tags              Tag[]
 }
 
 model CircleCategory {
   id       Int    @id @default(autoincrement())
-  circle   Circle @relation(fields: [circleId], references: [id])
   circleId Int
   name     String
+  circle   Circle @relation(fields: [circleId], references: [id])
 
-  @@index([circleId], name: "circle_category_circle_id_index")
+  @@index([circleId], map: "circle_category_circle_id_index")
 }
 
 model Tag {
   id        Int    @id @default(autoincrement())
-  circle    Circle @relation(fields: [circleId], references: [id])
   circleId  Int
   name      String
   usedCount Int    @default(0)
+  circle    Circle @relation(fields: [circleId], references: [id])
 
-  @@index([circleId], name: "tag_circle_id_index")
+  @@index([circleId], map: "tag_circle_id_index")
 }
 
 model CircleCreator {
   id       Int    @id @default(autoincrement())
-  circle   Circle @relation(fields: [circleId], references: [id])
   circleId Int
-  user     User   @relation(fields: [userId], references: [id])
   userId   String
+  circle   Circle @relation(fields: [circleId], references: [id])
+  user     User   @relation(fields: [userId], references: [id])
 
-  @@index([circleId], name: "circle_creator_circle_id_index")
+  @@index([circleId], map: "circle_creator_circle_id_index")
 }
 
 model SocialMediaLink {
   id       Int    @id @default(autoincrement())
-  circle   Circle @relation(fields: [circleId], references: [id])
   circleId Int
   name     String
   url      String
+  circle   Circle @relation(fields: [circleId], references: [id])
 
-  @@index([circleId], name: "social_media_link_circle_id_index")
+  @@index([circleId], map: "social_media_link_circle_id_index")
 }
 
 model Faculty {
@@ -175,8 +176,28 @@ model Faculty {
 
 model Major {
   id        Int     @id @default(autoincrement())
-  faculty   Faculty @relation(fields: [facultyId], references: [id])
   facultyId Int
   name      String
+  faculty   Faculty @relation(fields: [facultyId], references: [id])
   users     User[]
+}
+
+model ChatRoom {
+  id        String   @id @db.Uuid
+  name      String?
+  userId    String?
+  createdAt DateTime @default(now())
+  User      User?    @relation(fields: [userId], references: [id], onDelete: Restrict)
+  Prompt    Prompt[]
+}
+
+model Prompt {
+  id           Int      @id @default(autoincrement())
+  chatRoomId   String   @db.Uuid
+  userId       String?
+  message      String
+  createdAt    DateTime @default(now())
+  replyFromBot String?
+  User         User?    @relation(fields: [userId], references: [id], onDelete: Restrict)
+  ChatRoom     ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade, map: "public_Prompt_chatRoomId_fkey")
 }
