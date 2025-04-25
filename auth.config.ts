@@ -53,9 +53,6 @@ const authConfig: NextAuthConfig = {
 			console.warn(code);
 		},
 	},
-	pages: {
-		signIn: "/auth/signin",
-	},
 };
 
 export const { auth, handlers, signIn, signOut } = NextAuth(authConfig);
