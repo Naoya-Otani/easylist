@@ -18,7 +18,7 @@ import FacultyList from "./FacultyList";
 import MajorList from "./MajorList";
 
 const Profile: React.FC<{ userId: string }> = ({ userId }) => {
-	const { user, isLoading, mutate, isValidating } = useUser(userId);
+	const { user, mutate, isValidating } = useUser(userId);
 	const [nickname, setNickname] = useState<string>(user?.nickname || "");
 	const [faculty, setFaculty] = useState<Faculty>(
 		user?.faculty || ({} as Faculty),
@@ -34,6 +34,7 @@ const Profile: React.FC<{ userId: string }> = ({ userId }) => {
 		setSelectedMajor(user?.major || ({} as Major));
 	}, [user]);
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies:
 	useEffect(() => {
 		setSelectedMajor({} as Major);
 	}, [faculty]);

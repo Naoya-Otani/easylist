@@ -60,7 +60,7 @@ const MajorList: React.FC<{
 												}
                                   absolute inset-y-0 left-
                                   0 flex items-center pl-3`}
-											></span>
+											/>
 										) : null}
 									</>
 								)}

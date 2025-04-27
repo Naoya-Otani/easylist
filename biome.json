@@ -13,11 +13,15 @@
 				"useHookAtTopLevel": "error",
 				"useExhaustiveDependencies": "warn"
 			},
+			"a11y": {
+				"useKeyWithClickEvents": "off",
+				"noSvgWithoutTitle": "off"
+			},
 			"suspicious": {
 				"noArrayIndexKey": "warn"
 			}
 		},
-		"ignore": ["node_modules", ".next", "*.mjs"]
+		"ignore": ["node_modules", ".next", "*.mjs", ".vscode", ".github"]
 	},
 	"formatter": {
 		"enabled": true
