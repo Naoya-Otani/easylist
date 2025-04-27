@@ -12,8 +12,8 @@ export async function POST(req: Request) {
 		);
 	}
 
-	const mailUser = process.env.NEXT_PUBLIC_MAIL_USER;
-	const mailPass = process.env.NEXT_PUBLIC_MAIL_PASS;
+	const mailUser = process.env.NEXT_PUBLIC_EMAIL_USER;
+	const mailPass = process.env.EMAIL_APP_PASS;
 
 	if (!mailUser || !mailPass) {
 		return NextResponse.json(

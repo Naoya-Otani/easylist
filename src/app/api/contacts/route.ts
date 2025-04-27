@@ -8,8 +8,8 @@ export async function POST(req: Request) {
 		host: "smtp.gmail.com",
 		secure: true,
 		auth: {
-			user: process.env.NEXT_PUBLIC_MAIL_USER,
-			pass: process.env.NEXT_PUBLIC_MAIL_PASS,
+			user: process.env.NEXT_PUBLIC_EMAIL_USER,
+			pass: process.env.EMAIL_APP_PASS,
 		},
 	});
 
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 				},
 			}),
 			transporter.sendMail({
-				from: process.env.NEXT_PUBLIC_MAIL_USER,
+				from: process.env.NEXT_PUBLIC_EMAIL_USER,
 				to: data.email,
 				subject: "以下の内容でお問い合わせを受け付けました",
 				text: `
