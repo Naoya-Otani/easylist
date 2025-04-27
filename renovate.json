@@ -2,5 +2,46 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "schedule": ["every weekend"],
+  "dependencyDashboard": true,
+  "automerge": true,
+  "automergeType": "branch",
+  "platformAutomerge": true,
+  "packageRules": [
+    {
+      "groupName": "React",
+      "matchPackagePatterns": ["^react", "^@types/react"],
+      "labels": ["frontend"]
+    },
+    {
+      "groupName": "Prisma",
+      "matchPackagePatterns": ["^@prisma/", "^prisma"],
+      "labels": ["database"]
+    },
+    {
+      "groupName": "Next.js",
+      "matchPackagePatterns": ["^next"],
+      "labels": ["frontend"]
+    },
+    {
+      "groupName": "Tailwind CSS",
+      "matchPackagePatterns": ["^tailwindcss", "^@tailwindcss/"],
+      "labels": ["frontend"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
+  ],
+  "ignoreDeps": [
+    "next-auth"
+  ],
+  "postUpdateOptions": ["pnpmDedupe"],
+  "prConcurrentLimit": 5,
+  "branchConcurrentLimit": 10
 }
