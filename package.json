@@ -26,7 +26,7 @@
 		"@uidotdev/usehooks": "^2.4.0",
 		"@vercel/analytics": "^2.0.0",
 		"isomorphic-dompurify": "^3.0.0",
-		"next": "14.2",
+		"next": "16.2",
 		"next-auth": "^5.0.0-beta.20",
 		"nodemailer": "^6.9.3",
 		"react": "^18.3.1",
